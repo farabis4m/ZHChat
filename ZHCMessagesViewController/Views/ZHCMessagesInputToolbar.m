@@ -54,10 +54,11 @@ static void * kZHCMessagesInputToolbarKeyValueObservingContext = &kZHCMessagesIn
     self.contentView.leftBarButtonItem = [toolbarButtonFactory defaultInputViewBarLeftButtonItem];
     self.contentView.rightBarButtonItem = [toolbarButtonFactory defaultInputViewBarRightButtonItem];
     self.contentView.middleBarButtonItem = [toolbarButtonFactory defaultInputViewBarMiddelButtonItem];
+    self.contentView.middleLeftBarButtonItem = [toolbarButtonFactory defaultInputViewBarMiddleLeftButtonItem];
     self.contentView.longPressButton = [toolbarButtonFactory defaultInputViewVoiceLongPressButtonItem];
     self.contentView.longPressButton.hidden = YES;
 
-    [self.contentView.longPressButton addTarget:self action:@selector(zhc_startRecordVoice:) forControlEvents:UIControlEventTouchDown];
+
      [self.contentView.longPressButton addTarget:self action:@selector(zhc_cancelRecordVoice:) forControlEvents:UIControlEventTouchUpOutside];
     [self.contentView.longPressButton addTarget:self action:@selector(zhc_confirmRecordVoice:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView.longPressButton addTarget:self action:@selector(zhc_updateCancelRecordVoice) forControlEvents:UIControlEventTouchDragExit];
@@ -101,9 +102,9 @@ static void * kZHCMessagesInputToolbarKeyValueObservingContext = &kZHCMessagesIn
  */
 -(void)zhc_startRecordVoice:(UIButton *)sender
 {
-    sender.highlighted = YES;
-    [ZHCMessagesAudioProgressHUD zhc_show];
-    [_recorder zhc_startRecording];
+    //sender.highlighted = YES;
+    //[ZHCMessagesAudioProgressHUD zhc_show];
+    //[_recorder zhc_startRecording];
 }
 
 /**
@@ -151,13 +152,9 @@ static void * kZHCMessagesInputToolbarKeyValueObservingContext = &kZHCMessagesIn
     [self.delegate messagesInputToolbar:self didPressLeftBarButton:sender];
     if (sender.selected) {
         [self.contentView.textView resignFirstResponder];
-        self.contentView.textView.hidden = YES;
-        self.contentView.longPressButton.hidden = NO;
         
     }else{
         [self.contentView.textView becomeFirstResponder];
-        self.contentView.textView.hidden = NO;
-        self.contentView.longPressButton.hidden = YES;
     }
 
 }
@@ -186,6 +183,22 @@ static void * kZHCMessagesInputToolbarKeyValueObservingContext = &kZHCMessagesIn
     self.contentView.textView.hidden = NO;
     sender.selected = !sender.selected;
     [self.delegate messagesInputToolbar:self didPressMiddelBarButton:sender];
+    if (sender.selected) {
+        [self.contentView.textView resignFirstResponder];
+    }else{
+        [self.contentView.textView becomeFirstResponder];
+    }
+    
+}
+
+-(void)zhc_middleLeftBarButtonPressed:(UIButton *)sender
+{
+    self.contentView.leftBarButtonItem.selected = NO;
+    self.contentView.rightBarButtonItem.selected = NO;
+    self.contentView.longPressButton.hidden = YES;
+    self.contentView.textView.hidden = NO;
+    sender.selected = !sender.selected;
+    [self.delegate messagesInputToolbar:self didPressMiddleLeftBarButton:sender];
     if (sender.selected) {
         [self.contentView.textView resignFirstResponder];
     }else{
@@ -264,6 +277,11 @@ static void * kZHCMessagesInputToolbarKeyValueObservingContext = &kZHCMessagesIn
                 [self.contentView.middleBarButtonItem removeTarget:self action:NULL forControlEvents:UIControlEventTouchUpInside];
                 [self.contentView.middleBarButtonItem addTarget:self action:@selector(zhc_middelBarButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
             }
+            else if ([keyPath isEqualToString:NSStringFromSelector(@selector(middleLeftBarButtonItem))]){
+                [self.contentView.middleLeftBarButtonItem removeTarget:self action:NULL forControlEvents:UIControlEventTouchUpInside];
+                [self.contentView.middleLeftBarButtonItem addTarget:self action:@selector(zhc_middleLeftBarButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+            }
+
             
             [self toggleSendButtonEnabled];
         }
@@ -288,6 +306,8 @@ static void * kZHCMessagesInputToolbarKeyValueObservingContext = &kZHCMessagesIn
     
     [self.contentView addObserver:self forKeyPath:NSStringFromSelector(@selector(middleBarButtonItem)) options:0 context:kZHCMessagesInputToolbarKeyValueObservingContext];
     
+    [self.contentView addObserver:self forKeyPath:NSStringFromSelector(@selector(middleLeftBarButtonItem)) options:0 context:kZHCMessagesInputToolbarKeyValueObservingContext];
+
     self.zhc_isObserving = YES;
 }
 
@@ -308,6 +328,9 @@ static void * kZHCMessagesInputToolbarKeyValueObservingContext = &kZHCMessagesIn
                              context:kZHCMessagesInputToolbarKeyValueObservingContext];
         
         [_contentView removeObserver:self forKeyPath:NSStringFromSelector(@selector(middleBarButtonItem)) context:kZHCMessagesInputToolbarKeyValueObservingContext];
+        
+        [_contentView removeObserver:self forKeyPath:NSStringFromSelector(@selector(middleLeftBarButtonItem)) context:kZHCMessagesInputToolbarKeyValueObservingContext];
+
     }
     @catch (NSException *__unused exception) { }
     

@@ -25,6 +25,7 @@
 #import <MobileCoreServices/UTCoreTypes.h>
 #import <objc/runtime.h>
 
+#define KBUTTON_WIDTH 35
 @interface ZHCMessagesViewController ()<UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet ZHCMessagesTableView *messageTableView;
 @property (strong, nonatomic) IBOutlet ZHCMessagesInputToolbar *inputMessageBarView;
@@ -851,6 +852,16 @@
     }
 }
 
+-(void)messagesInputToolbar:(ZHCMessagesInputToolbar *)toolbar didPressMiddleLeftBarButton:(UIButton *)sender
+{
+    if (sender.selected) {
+        [self showEmojiView];
+    }else{
+        [self hiddenEmojiView];
+        [self.inputMessageBarView.contentView.textView becomeFirstResponder];
+    }
+}
+
 -(void)messagesInputToolbar:(ZHCMessagesInputToolbar *)toolbar sendVoice:(NSString *)voiceFilePath seconds:(NSTimeInterval)senconds
 {
     
@@ -1024,6 +1035,15 @@
 }
 
 
+- (void)keyboardWillShow: (NSNotification *) notif{
+    // Show Button
+    self.inputMessageBarView.contentView.middleLeftBarButtonContainerViewWidthConstraint.constant = KBUTTON_WIDTH;
+}
+
+- (void)keyboardWillHide: (NSNotification *) notif{
+    // Hide Button
+    self.inputMessageBarView.contentView.middleLeftBarButtonContainerViewWidthConstraint.constant = 0;
+}
 
 #pragma mark - Utilities
 - (void)zhc_registerForNotifications:(BOOL)registerForNotifications
@@ -1045,6 +1065,17 @@
                                                  selector:@selector(didReceiveMenuWillHideNotification:)
                                                      name:UIMenuControllerWillHideMenuNotification
                                                    object:nil];
+        
+        // Listen for keyboard appearances and disappearances
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardWillShow:)
+                                                     name:UIKeyboardWillShowNotification
+                                                   object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardWillHide:)
+                                                     name:UIKeyboardWillHideNotification
+                                                   object:nil];
     }
     else {
         [[NSNotificationCenter defaultCenter] removeObserver:self
@@ -1063,6 +1094,15 @@
         [[NSNotificationCenter defaultCenter] removeObserver:self
                                                         name:UIMenuControllerWillHideMenuNotification
                                                       object:nil];
+        
+        // Listen for keyboard appearances and disappearances
+        [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                     name:UIKeyboardWillShowNotification
+                                                   object:nil];
+        
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification
+                                                    object:nil];
+
     }
 }
 

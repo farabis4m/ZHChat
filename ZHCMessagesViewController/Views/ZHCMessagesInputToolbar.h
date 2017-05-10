@@ -47,6 +47,15 @@ NS_ASSUME_NONNULL_BEGIN
       didPressMiddelBarButton:(UIButton *)sender;
 
 /**
+ *  Tells the delegate that the toolbar's `middleLeftBarButtonItem` has been pressed.
+ *
+ *  @param toolbar The object representing the toolbar sending this information.
+ *  @param sender  The button that received the touch event.
+ */
+- (void)messagesInputToolbar:(ZHCMessagesInputToolbar *)toolbar
+ didPressMiddleLeftBarButton:(UIButton *)sender;
+
+/**
  *  Tells the delegate that the toolbar's `leftBarButtonItem` has been pressed.
  *
  *  @param toolbar The object representing the toolbar sending this information.

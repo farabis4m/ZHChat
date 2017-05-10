@@ -85,6 +85,22 @@
     
 }
 
+-(UIButton *)defaultInputViewBarMiddleLeftButtonItem
+{
+    UIImage *emotionImage = [UIImage zhc_defaultEmotionImage];
+    UIImage *keyboardImage = [UIImage zhc_defaultKeyboardImage];
+    
+    UIButton *emotionButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 35, 35)];
+    [emotionButton setBackgroundImage:emotionImage forState:UIControlStateNormal];
+    [emotionButton setBackgroundImage:keyboardImage forState:UIControlStateSelected];
+    emotionButton.contentMode = UIViewContentModeScaleAspectFit;
+    emotionButton.backgroundColor = [UIColor clearColor];
+    emotionButton.tintColor = [UIColor lightGrayColor];
+    emotionButton.titleLabel.font = self.buttonFont;
+    return emotionButton;
+    
+}
+
 -(UIButton *)defaultInputViewVoiceLongPressButtonItem
 {
     UIImage *normalImage = [UIImage zhc_defaultLongPressVoiceImage];
@@ -92,8 +108,6 @@
     UIButton *longPressButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [longPressButton setBackgroundImage:normalImage forState:UIControlStateNormal];
     [longPressButton setBackgroundImage:highlightImage forState:UIControlStateHighlighted];
-    [longPressButton setTitle:[NSBundle zhc_localizedStringForKey:@"Press_talk"] forState:UIControlStateNormal];
-    [longPressButton setTitle:[NSBundle zhc_localizedStringForKey:@"Send_release"] forState:UIControlStateHighlighted];
     [longPressButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [longPressButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
     longPressButton.titleLabel.font = self.buttonFont;

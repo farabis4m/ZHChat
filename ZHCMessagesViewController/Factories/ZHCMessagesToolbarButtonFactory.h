@@ -70,6 +70,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(UIButton *)defaultInputViewBarMiddelButtonItem;
 
+-(UIButton *)defaultInputViewBarMiddleLeftButtonItem;
+
 /**
  *  Creates and returns a new button that is styled as the default LongPress button.
  *  The button has a paper clip icon image and no text.

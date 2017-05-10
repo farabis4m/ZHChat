@@ -108,6 +108,15 @@ FOUNDATION_EXPORT const CGFloat kZHCMessagesToolbarContentViewHorizontalSpacingD
  */
 @property (weak, nonatomic, readonly, nullable) UIView *rightBarButtonContainerView;
 
+/**
+*  The container view for the leftBarButtonItem.
+*
+*  @discussion
+*  You may use this property to add additional button items to the left side of the toolbar content view.
+*  However, you will be completely responsible for responding to all touch events for these buttons
+*  in your `ZHCMessagesViewController` subclass.
+*/
+@property (weak, nonatomic, readonly, nullable) UIView *middleLeftBarButtonContainerView;
 
 /**
  *  A custom button item displayed on the right of the toolbar content view.
@@ -120,6 +129,18 @@ FOUNDATION_EXPORT const CGFloat kZHCMessagesToolbarContentViewHorizontalSpacingD
  *  Set this value to `nil` to remove the button.
  */
 @property (weak, nonatomic, nullable) UIButton *middleBarButtonItem;
+
+/**
+*  A custom button item displayed on the left of the toolbar content view.
+*
+*  @discussion The frame height of this button is ignored. When you set this property, the button
+*  is fitted within a pre-defined default content view, the middleBarButtonContainerView,
+*  whose height is determined by the height of the toolbar. However, the width of this button
+*  will be preserved. You may specify a new width using `middleBarButtonItemWidth`.
+*  If the frame of this button is equal to `CGRectZero` when set, then a default frame size will be used.
+*  Set this value to `nil` to remove the button.
+*/
+@property (weak, nonatomic, nullable) UIButton *middleLeftBarButtonItem;
 
 /**
  *  Specifies the width of the middleBarButtonItem.
@@ -151,6 +172,7 @@ FOUNDATION_EXPORT const CGFloat kZHCMessagesToolbarContentViewHorizontalSpacingD
  */
 @property (strong, nonatomic,nullable) UIButton *longPressButton;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *middleLeftBarButtonContainerViewWidthConstraint;
 
 #pragma mark - Class methods
 

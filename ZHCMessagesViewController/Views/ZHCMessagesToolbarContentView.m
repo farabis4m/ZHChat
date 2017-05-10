@@ -26,6 +26,8 @@ const CGFloat kZHCMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
 @property (weak, nonatomic) IBOutlet UIView *rightBarButtonContainerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightBarButtonContainerViewWidthConstraint;
 
+@property (weak, nonatomic) IBOutlet UIView *middleLeftBarButtonContainerView;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftHorizontalSpacingConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightHorizontalSpacingConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *middleHorizontalSpacingConstraint;
@@ -65,6 +67,7 @@ const CGFloat kZHCMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
     self.leftBarButtonContainerView.backgroundColor = backgroundColor;
     self.middleBarButtonContainerView.backgroundColor = backgroundColor;
     self.rightBarButtonContainerView.backgroundColor = backgroundColor;
+    self.middleLeftBarButtonContainerView.backgroundColor = backgroundColor;
 }
 
 - (void)setLeftBarButtonItem:(UIButton *)leftBarButtonItem
@@ -136,6 +139,42 @@ const CGFloat kZHCMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
     _middleBarButtonItem = middleBarButtonItem;
 }
 
+- (void)setMiddleLeftBarButtonItem:(UIButton *)middleBarButtonItem
+{
+    if (_middleLeftBarButtonItem) {
+        [_middleLeftBarButtonItem removeFromSuperview];
+    }
+    
+    if (!middleBarButtonItem) {
+        _middleLeftBarButtonItem = nil;
+        self.middleHorizontalSpacingConstraint.constant = 0.0f;
+        self.middleBarButtonItemWidth = 0.0f;
+        self.middleBarButtonContainerView.hidden = YES;
+        return;
+    }
+    
+    if (CGRectEqualToRect(middleBarButtonItem.frame, CGRectZero)) {
+        middleBarButtonItem.frame = self.middleLeftBarButtonContainerView.bounds;
+    }
+    
+    self.middleLeftBarButtonContainerView.hidden = NO;
+    self.middleHorizontalSpacingConstraint.constant = kZHCMessagesToolbarContentViewHorizontalSpacingDefault;
+    self.middleBarButtonItemWidth = CGRectGetWidth(middleBarButtonItem.frame);
+    
+    [middleBarButtonItem setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    [self.middleLeftBarButtonContainerView addSubview:middleBarButtonItem];
+    [self.middleLeftBarButtonContainerView zhc_pinAllEdgesOfSubview:middleBarButtonItem];
+    [self setNeedsUpdateConstraints];
+    
+    _middleLeftBarButtonItem = middleBarButtonItem;
+}
+
+- (void)setMiddleLeftBarButtonItemWidth:(CGFloat)leftBarButtonItemWidth
+{
+    self.middleLeftBarButtonContainerViewWidthConstraint.constant = leftBarButtonItemWidth;
+    [self setNeedsUpdateConstraints];
+}
 
 -(void)setLongPressButton:(UIButton *)longPressButton
 {
