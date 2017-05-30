@@ -40,18 +40,17 @@
 
 -(UIButton *)defaultInputViewBarLeftButtonItem
 {
-    UIImage *voiceImage = [UIImage zhc_defaultVoiceImage];
+    UIImage *emotionImage = [UIImage zhc_defaultEmotionImage];
     UIImage *keyboardImage = [UIImage zhc_defaultKeyboardImage];
     
-    UIButton *voiceButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 35, 35)];
-    [voiceButton setImage:voiceImage forState:UIControlStateNormal];
-    [voiceButton setImage:keyboardImage forState:UIControlStateSelected];
-    voiceButton.contentMode = UIViewContentModeScaleAspectFit;
-    voiceButton.backgroundColor = [UIColor clearColor];
-    voiceButton.tintColor = [UIColor lightGrayColor];
-    voiceButton.titleLabel.font = self.buttonFont;
-    
-    return voiceButton;
+    UIButton *emotionButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 35, 35)];
+    [emotionButton setBackgroundImage:emotionImage forState:UIControlStateNormal];
+    [emotionButton setBackgroundImage:keyboardImage forState:UIControlStateSelected];
+    emotionButton.contentMode = UIViewContentModeScaleAspectFit;
+    emotionButton.backgroundColor = [UIColor clearColor];
+    emotionButton.tintColor = [UIColor lightGrayColor];
+    emotionButton.titleLabel.font = self.buttonFont;
+    return emotionButton;
 }
 
 -(UIButton *)defaultInputViewBarRightButtonItem
@@ -87,18 +86,18 @@
 
 -(UIButton *)defaultInputViewBarMiddleLeftButtonItem
 {
-    UIImage *emotionImage = [UIImage zhc_defaultEmotionImage];
+    UIImage *voiceImage = [UIImage zhc_defaultVoiceImage];
     UIImage *keyboardImage = [UIImage zhc_defaultKeyboardImage];
     
-    UIButton *emotionButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 35, 35)];
-    [emotionButton setBackgroundImage:emotionImage forState:UIControlStateNormal];
-    [emotionButton setBackgroundImage:keyboardImage forState:UIControlStateSelected];
-    emotionButton.contentMode = UIViewContentModeScaleAspectFit;
-    emotionButton.backgroundColor = [UIColor clearColor];
-    emotionButton.tintColor = [UIColor lightGrayColor];
-    emotionButton.titleLabel.font = self.buttonFont;
-    return emotionButton;
+    UIButton *voiceButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 35, 35)];
+    [voiceButton setImage:voiceImage forState:UIControlStateNormal];
+    [voiceButton setImage:keyboardImage forState:UIControlStateSelected];
+    voiceButton.contentMode = UIViewContentModeScaleAspectFit;
+    voiceButton.backgroundColor = [UIColor clearColor];
+    voiceButton.tintColor = [UIColor lightGrayColor];
+    voiceButton.titleLabel.font = self.buttonFont;
     
+    return voiceButton;
 }
 
 -(UIButton *)defaultInputViewVoiceLongPressButtonItem

@@ -22,6 +22,7 @@ static void * kZHCMessagesInputToolbarKeyValueObservingContext = &kZHCMessagesIn
 @interface ZHCMessagesInputToolbar ()
 @property (assign, nonatomic) BOOL zhc_isObserving;
 @property (strong, nonatomic) ZHCMessagesVoiceRecorder *recorder;
+@property (strong, nonatomic) UIImageView *progressBarImageView;
 @end
 
 @implementation ZHCMessagesInputToolbar
@@ -35,7 +36,7 @@ static void * kZHCMessagesInputToolbarKeyValueObservingContext = &kZHCMessagesIn
     self.backgroundColor = [UIColor whiteColor];
     self.zhc_isObserving = NO;
     self.sendButtonOnRight = YES;
-    
+    self.contentView.progressView.hidden = YES;
     self.preferredDefaultHeight = 44.0f;
     self.maximumHeight = NSNotFound;
     
@@ -54,15 +55,16 @@ static void * kZHCMessagesInputToolbarKeyValueObservingContext = &kZHCMessagesIn
     self.contentView.leftBarButtonItem = [toolbarButtonFactory defaultInputViewBarLeftButtonItem];
     self.contentView.rightBarButtonItem = [toolbarButtonFactory defaultInputViewBarRightButtonItem];
     self.contentView.middleBarButtonItem = [toolbarButtonFactory defaultInputViewBarMiddelButtonItem];
-    self.contentView.middleLeftBarButtonItem = [toolbarButtonFactory defaultInputViewBarMiddleLeftButtonItem];
-    self.contentView.longPressButton = [toolbarButtonFactory defaultInputViewVoiceLongPressButtonItem];
+    self.contentView.middleLeftBarButtonItem = [toolbarButtonFactory defaultInputViewVoiceLongPressButtonItem];// defaultInputViewBarMiddleLeftButtonItem
+//    self.contentView.longPressButton = [toolbarButtonFactory defaultInputViewVoiceLongPressButtonItem];
     self.contentView.longPressButton.hidden = YES;
 
+    [self.contentView.middleLeftBarButtonItem addTarget:self action:@selector(zhc_startRecordVoice:) forControlEvents:UIControlEventTouchDown];
 
-     [self.contentView.longPressButton addTarget:self action:@selector(zhc_cancelRecordVoice:) forControlEvents:UIControlEventTouchUpOutside];
-    [self.contentView.longPressButton addTarget:self action:@selector(zhc_confirmRecordVoice:) forControlEvents:UIControlEventTouchUpInside];
-    [self.contentView.longPressButton addTarget:self action:@selector(zhc_updateCancelRecordVoice) forControlEvents:UIControlEventTouchDragExit];
-    [self.contentView.longPressButton addTarget:self action:@selector(zhc_updateContinueRecordVoice) forControlEvents:UIControlEventTouchDragEnter];
+     [self.contentView.middleLeftBarButtonItem addTarget:self action:@selector(zhc_cancelRecordVoice:) forControlEvents:UIControlEventTouchUpOutside];
+    [self.contentView.middleLeftBarButtonItem addTarget:self action:@selector(zhc_confirmRecordVoice:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView.middleLeftBarButtonItem addTarget:self action:@selector(zhc_updateCancelRecordVoice) forControlEvents:UIControlEventTouchDragExit];
+    [self.contentView.middleLeftBarButtonItem addTarget:self action:@selector(zhc_updateContinueRecordVoice) forControlEvents:UIControlEventTouchDragEnter];
     
     
     [self toggleSendButtonEnabled];
@@ -78,6 +80,12 @@ static void * kZHCMessagesInputToolbarKeyValueObservingContext = &kZHCMessagesIn
     return nibViews.firstObject;
 }
 
+
+-(UIImageView *)progressBarImageView{
+    
+    return [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 0, self.contentView.progressView.frame.size.height)];
+    
+}
 - (void)dealloc
 {
     [self zhc_removeObservers];
@@ -102,9 +110,25 @@ static void * kZHCMessagesInputToolbarKeyValueObservingContext = &kZHCMessagesIn
  */
 -(void)zhc_startRecordVoice:(UIButton *)sender
 {
-    //sender.highlighted = YES;
+    sender.highlighted = YES;
     //[ZHCMessagesAudioProgressHUD zhc_show];
-    //[_recorder zhc_startRecording];
+    
+    [_recorder zhc_startRecording];
+    
+    self.contentView.progressView.hidden = NO;
+    _progressBarImageView = [self progressBarImageView];
+    [_progressBarImageView setBackgroundColor:[UIColor greenColor]];
+    [_progressBarImageView setClipsToBounds:YES];
+    [self.contentView.progressView addSubview:_progressBarImageView];
+    
+    [UIView animateWithDuration:5.0 animations:^{
+        [_progressBarImageView setFrame:self.contentView.progressView.bounds];
+    } completion:^(BOOL finished) {
+        [_progressBarImageView removeFromSuperview];
+        self.contentView.progressView.hidden = YES;
+    }];
+    
+    
 }
 
 /**
@@ -114,6 +138,8 @@ static void * kZHCMessagesInputToolbarKeyValueObservingContext = &kZHCMessagesIn
 {
     sender.highlighted = NO;
     [ZHCMessagesAudioProgressHUD zhc_dismissWithMessage:[NSBundle zhc_localizedStringForKey:@"Cancel_Recording"]];
+    [_progressBarImageView removeFromSuperview];
+    self.contentView.progressView.hidden = YES;
     [_recorder zhc_cancelRecord];
 }
 
@@ -124,6 +150,8 @@ static void * kZHCMessagesInputToolbarKeyValueObservingContext = &kZHCMessagesIn
 {
      sender.highlighted = NO;
     [_recorder zhc_stopRecording];
+    [_progressBarImageView removeFromSuperview];
+    self.contentView.progressView.hidden = YES;
 }
 
 /**
@@ -132,7 +160,8 @@ static void * kZHCMessagesInputToolbarKeyValueObservingContext = &kZHCMessagesIn
 -(void)zhc_updateCancelRecordVoice
 {
     [ZHCMessagesAudioProgressHUD zhc_changeSubTitle:[NSBundle zhc_localizedStringForKey:@"Release_Cancel_Recording"]];
-    
+    [_progressBarImageView removeFromSuperview];
+    self.contentView.progressView.hidden = YES;
 }
 
 /**

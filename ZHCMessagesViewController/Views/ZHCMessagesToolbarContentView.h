@@ -173,6 +173,7 @@ FOUNDATION_EXPORT const CGFloat kZHCMessagesToolbarContentViewHorizontalSpacingD
 @property (strong, nonatomic,nullable) UIButton *longPressButton;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *middleLeftBarButtonContainerViewWidthConstraint;
+@property (weak, nonatomic) IBOutlet UIView *progressView;
 
 #pragma mark - Class methods
 

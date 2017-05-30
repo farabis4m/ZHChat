@@ -31,6 +31,7 @@ const CGFloat kZHCMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftHorizontalSpacingConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightHorizontalSpacingConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *middleHorizontalSpacingConstraint;
+
 @end
 
 @implementation ZHCMessagesToolbarContentView
@@ -269,7 +270,6 @@ const CGFloat kZHCMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
     self.rightBarButtonContainerViewWidthConstraint.constant = rightBarButtonItemWidth;
     [self setNeedsUpdateConstraints];
 }
-
 
 #pragma mark - Getters
 
