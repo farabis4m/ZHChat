@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="154"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrA-tq-0ZV" customClass="ZHCMessagesLabel">
@@ -40,7 +40,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bubble top Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fic-Hc-208" customClass="ZHCMessagesLabel">
-                        <rect key="frame" x="0.0" y="17" width="320" height="17"/>
+                        <rect key="frame" x="13" y="17" width="294" height="17"/>
                         <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="20" id="IBx-pP-RYY"/>
@@ -113,8 +113,8 @@
                     <constraint firstItem="QkL-sf-hMh" firstAttribute="leading" secondItem="WFt-sQ-v6q" secondAttribute="trailing" constant="14" id="WEb-Er-3X4"/>
                     <constraint firstItem="WFt-sQ-v6q" firstAttribute="top" secondItem="Fic-Hc-208" secondAttribute="bottom" id="XFT-e0-CWM"/>
                     <constraint firstItem="qk1-EK-aBJ" firstAttribute="top" secondItem="QkL-sf-hMh" secondAttribute="bottom" id="YCi-bQ-GHM"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Fic-Hc-208" secondAttribute="trailing" constant="-8" id="Yg5-B3-zEx"/>
-                    <constraint firstItem="Fic-Hc-208" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="ZDo-vL-xYl"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Fic-Hc-208" secondAttribute="trailing" constant="5" id="Yg5-B3-zEx"/>
+                    <constraint firstItem="Fic-Hc-208" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="ZDo-vL-xYl"/>
                     <constraint firstItem="HX7-0h-z6r" firstAttribute="top" secondItem="xrA-tq-0ZV" secondAttribute="bottom" id="cCf-om-PNQ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="qk1-EK-aBJ" secondAttribute="trailing" constant="-8" id="ew4-US-AcX"/>
                     <constraint firstAttribute="trailingMargin" secondItem="xrA-tq-0ZV" secondAttribute="trailing" constant="-8" id="ln1-uQ-EY0"/>

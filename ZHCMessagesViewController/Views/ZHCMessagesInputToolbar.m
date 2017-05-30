@@ -37,6 +37,7 @@ static void * kZHCMessagesInputToolbarKeyValueObservingContext = &kZHCMessagesIn
     self.zhc_isObserving = NO;
     self.sendButtonOnRight = YES;
     self.contentView.progressView.hidden = YES;
+    self.contentView.swipeToCancelLabel.hidden = YES;
     self.preferredDefaultHeight = 44.0f;
     self.maximumHeight = NSNotFound;
     
@@ -65,7 +66,6 @@ static void * kZHCMessagesInputToolbarKeyValueObservingContext = &kZHCMessagesIn
     [self.contentView.middleLeftBarButtonItem addTarget:self action:@selector(zhc_confirmRecordVoice:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView.middleLeftBarButtonItem addTarget:self action:@selector(zhc_updateCancelRecordVoice) forControlEvents:UIControlEventTouchDragExit];
     [self.contentView.middleLeftBarButtonItem addTarget:self action:@selector(zhc_updateContinueRecordVoice) forControlEvents:UIControlEventTouchDragEnter];
-    
     
     [self toggleSendButtonEnabled];
    
@@ -116,10 +116,12 @@ static void * kZHCMessagesInputToolbarKeyValueObservingContext = &kZHCMessagesIn
     [_recorder zhc_startRecording];
     
     self.contentView.progressView.hidden = NO;
+    self.contentView.swipeToCancelLabel.hidden = YES;
     _progressBarImageView = [self progressBarImageView];
     [_progressBarImageView setBackgroundColor:[UIColor greenColor]];
     [_progressBarImageView setClipsToBounds:YES];
     [self.contentView.progressView addSubview:_progressBarImageView];
+    [self.contentView.progressView bringSubviewToFront:self.contentView.swipeToCancelLabel];
     
     [UIView animateWithDuration:5.0 animations:^{
         [_progressBarImageView setFrame:self.contentView.progressView.bounds];
@@ -137,7 +139,7 @@ static void * kZHCMessagesInputToolbarKeyValueObservingContext = &kZHCMessagesIn
 -(void)zhc_cancelRecordVoice:(UIButton *)sender
 {
     sender.highlighted = NO;
-    [ZHCMessagesAudioProgressHUD zhc_dismissWithMessage:[NSBundle zhc_localizedStringForKey:@"Cancel_Recording"]];
+  //  [ZHCMessagesAudioProgressHUD zhc_dismissWithMessage:[NSBundle zhc_localizedStringForKey:@"Cancel_Recording"]];
     [_progressBarImageView removeFromSuperview];
     self.contentView.progressView.hidden = YES;
     [_recorder zhc_cancelRecord];

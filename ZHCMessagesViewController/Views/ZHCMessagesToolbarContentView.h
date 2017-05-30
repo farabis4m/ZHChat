@@ -174,6 +174,7 @@ FOUNDATION_EXPORT const CGFloat kZHCMessagesToolbarContentViewHorizontalSpacingD
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *middleLeftBarButtonContainerViewWidthConstraint;
 @property (weak, nonatomic) IBOutlet UIView *progressView;
+@property (weak, nonatomic) IBOutlet UILabel *swipeToCancelLabel;
 
 #pragma mark - Class methods
 
