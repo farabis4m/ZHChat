@@ -96,4 +96,25 @@
  */
 +(UIImage *)zhc_getImageWithImageName:(NSString *)imgName;
 
+
+/**
+ *  @return The camera image .
+ */
++(UIImage *)zhc_cameraImage;
+
+/**
+ *  @return The camera image .
+ */
++(UIImage *)zhc_recorderImage;
+
+/**
+ *  @return The camera image .
+ */
++(UIImage *)zhc_highlightedRecorderImage;
+
+/**
+ *  @return The camera image .
+ */
++(UIImage *)zhc_sendImage;
+
 @end

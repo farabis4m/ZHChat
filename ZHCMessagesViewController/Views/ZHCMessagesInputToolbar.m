@@ -61,16 +61,16 @@ CGFloat duration;
     self.contentView.leftBarButtonItem = [toolbarButtonFactory defaultInputViewBarLeftButtonItem];
     self.contentView.rightBarButtonItem = [toolbarButtonFactory defaultInputViewBarRightButtonItem];
     self.contentView.middleBarButtonItem = [toolbarButtonFactory defaultInputViewBarMiddelButtonItem];
-    self.contentView.middleLeftBarButtonItem = [toolbarButtonFactory defaultInputViewVoiceLongPressButtonItem];// defaultInputViewBarMiddleLeftButtonItem
+   // self.contentView.middleLeftBarButtonItem = [toolbarButtonFactory defaultInputViewVoiceLongPressButtonItem];// defaultInputViewBarMiddleLeftButtonItem
 //    self.contentView.longPressButton = [toolbarButtonFactory defaultInputViewVoiceLongPressButtonItem];
     self.contentView.longPressButton.hidden = YES;
 
-    [self.contentView.middleLeftBarButtonItem addTarget:self action:@selector(zhc_startRecordVoice:) forControlEvents:UIControlEventTouchDown];
+    [self.contentView.leftBarButtonItem addTarget:self action:@selector(zhc_startRecordVoice:) forControlEvents:UIControlEventTouchDown];
 
-     [self.contentView.middleLeftBarButtonItem addTarget:self action:@selector(zhc_cancelRecordVoice:) forControlEvents:UIControlEventTouchUpOutside];
-    [self.contentView.middleLeftBarButtonItem addTarget:self action:@selector(zhc_confirmRecordVoice:) forControlEvents:UIControlEventTouchUpInside];
-    [self.contentView.middleLeftBarButtonItem addTarget:self action:@selector(zhc_updateCancelRecordVoice) forControlEvents:UIControlEventTouchDragExit];
-    [self.contentView.middleLeftBarButtonItem addTarget:self action:@selector(zhc_updateContinueRecordVoice) forControlEvents:UIControlEventTouchDragEnter];
+     [self.contentView.leftBarButtonItem addTarget:self action:@selector(zhc_cancelRecordVoice:) forControlEvents:UIControlEventTouchUpOutside];
+    [self.contentView.leftBarButtonItem addTarget:self action:@selector(zhc_confirmRecordVoice:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView.leftBarButtonItem addTarget:self action:@selector(zhc_updateCancelRecordVoice) forControlEvents:UIControlEventTouchDragExit];
+    [self.contentView.leftBarButtonItem addTarget:self action:@selector(zhc_updateContinueRecordVoice) forControlEvents:UIControlEventTouchDragEnter];
     
     [self toggleSendButtonEnabled];
    
@@ -148,10 +148,11 @@ CGFloat duration;
     self.contentView.textView.hidden = YES;
     self.contentView.recordingTimeLabel.text = [NSString stringWithFormat:@"%0.1f",duration];
     _progressBarImageView = [self progressBarImageView];
-    [_progressBarImageView setBackgroundColor:[UIColor greenColor]];
+    [_progressBarImageView setBackgroundColor:[UIColor colorWithRed:(103.0/255.0) green:(197.0/255.0) blue:(95.0/255.0) alpha:1.0]];
     [_progressBarImageView setClipsToBounds:YES];
     [self.contentView.progressView addSubview:_progressBarImageView];
     [self.contentView.progressView bringSubviewToFront:self.contentView.swipeToCancelLabel];
+    [self.contentView.progressView bringSubviewToFront:self.contentView.recordingTimeLabel];
     
     [UIView animateWithDuration:5.0 animations:^{
         [_progressBarImageView setFrame:self.contentView.progressView.bounds];

@@ -140,42 +140,42 @@ const CGFloat kZHCMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
     _middleBarButtonItem = middleBarButtonItem;
 }
 
-- (void)setMiddleLeftBarButtonItem:(UIButton *)middleBarButtonItem
-{
-    if (_middleLeftBarButtonItem) {
-        [_middleLeftBarButtonItem removeFromSuperview];
-    }
-    
-    if (!middleBarButtonItem) {
-        _middleLeftBarButtonItem = nil;
-        self.middleHorizontalSpacingConstraint.constant = 0.0f;
-        self.middleBarButtonItemWidth = 0.0f;
-        self.middleBarButtonContainerView.hidden = YES;
-        return;
-    }
-    
-    if (CGRectEqualToRect(middleBarButtonItem.frame, CGRectZero)) {
-        middleBarButtonItem.frame = self.middleLeftBarButtonContainerView.bounds;
-    }
-    
-    self.middleLeftBarButtonContainerView.hidden = NO;
-    self.middleHorizontalSpacingConstraint.constant = kZHCMessagesToolbarContentViewHorizontalSpacingDefault;
-    self.middleBarButtonItemWidth = CGRectGetWidth(middleBarButtonItem.frame);
-    
-    [middleBarButtonItem setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
-    [self.middleLeftBarButtonContainerView addSubview:middleBarButtonItem];
-    [self.middleLeftBarButtonContainerView zhc_pinAllEdgesOfSubview:middleBarButtonItem];
-    [self setNeedsUpdateConstraints];
-    
-    _middleLeftBarButtonItem = middleBarButtonItem;
-}
+//- (void)setMiddleLeftBarButtonItem:(UIButton *)middleBarButtonItem
+//{
+//    if (_middleLeftBarButtonItem) {
+//        [_middleLeftBarButtonItem removeFromSuperview];
+//    }
+//    
+//    if (!middleBarButtonItem) {
+//        _middleLeftBarButtonItem = nil;
+//        self.middleHorizontalSpacingConstraint.constant = 0.0f;
+//        self.middleBarButtonItemWidth = 0.0f;
+//        self.middleLeftBarButtonContainerView.hidden = YES;
+//        return;
+//    }
+//    
+//    if (CGRectEqualToRect(middleBarButtonItem.frame, CGRectZero)) {
+//        middleBarButtonItem.frame = self.middleLeftBarButtonContainerView.bounds;
+//    }
+//    
+//    self.middleLeftBarButtonContainerView.hidden = NO;
+//    self.middleHorizontalSpacingConstraint.constant = kZHCMessagesToolbarContentViewHorizontalSpacingDefault;
+//    self.middleBarButtonItemWidth = CGRectGetWidth(middleBarButtonItem.frame);
+//    
+//    [middleBarButtonItem setTranslatesAutoresizingMaskIntoConstraints:NO];
+//    
+//    [self.middleLeftBarButtonContainerView addSubview:middleBarButtonItem];
+//    [self.middleLeftBarButtonContainerView zhc_pinAllEdgesOfSubview:middleBarButtonItem];
+//    [self setNeedsUpdateConstraints];
+//    
+//    _middleLeftBarButtonItem = middleBarButtonItem;
+//}
 
-- (void)setMiddleLeftBarButtonItemWidth:(CGFloat)leftBarButtonItemWidth
-{
-    self.middleLeftBarButtonContainerViewWidthConstraint.constant = leftBarButtonItemWidth;
-    [self setNeedsUpdateConstraints];
-}
+//- (void)setMiddleLeftBarButtonItemWidth:(CGFloat)leftBarButtonItemWidth
+//{
+//   // self.middleLeftBarButtonContainerViewWidthConstraint.constant = leftBarButtonItemWidth;
+//    [self setNeedsUpdateConstraints];
+//}
 
 -(void)setLongPressButton:(UIButton *)longPressButton
 {
@@ -220,7 +220,7 @@ const CGFloat kZHCMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
     [self addConstraint:[NSLayoutConstraint constraintWithItem:longpressView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1 constant:top]];
      [self addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:longpressView attribute:NSLayoutAttributeBottom multiplier:1 constant:bottom]];
     [self addConstraint:[NSLayoutConstraint constraintWithItem:longpressView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:_leftBarButtonContainerView attribute:NSLayoutAttributeTrailing multiplier:1 constant:left]];
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:_middleBarButtonContainerView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:longpressView attribute:NSLayoutAttributeTrailing multiplier:1 constant:right]];
+//    [self addConstraint:[NSLayoutConstraint constraintWithItem:_middleBarButtonContainerView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:longpressView attribute:NSLayoutAttributeTrailing multiplier:1 constant:right]];
 
     
 }

@@ -117,6 +117,24 @@
     return stretchImage;
 }
 
++(UIImage *)zhc_cameraImage {
+    return [UIImage zhc_bubbleImageFromBundleWithName:@"camera2"];
+}
+
++(UIImage *)zhc_recorderImage {
+    return [UIImage zhc_bubbleImageFromBundleWithName:@"ToolViewMore"];
+}
+
++(UIImage *)zhc_highlightedRecorderImage {
+    return [UIImage zhc_bubbleImageFromBundleWithName:@"ToolViewMore"];
+}
+
++(UIImage *)zhc_sendImage {
+    return [UIImage zhc_bubbleImageFromBundleWithName:@"send"];
+}
+
+
+
 +(UIImage *)zhc_getImageWithImageName:(NSString *)imgName
 {
     UIImage *image = [UIImage zhc_bubbleImageFromBundleWithName:imgName];
