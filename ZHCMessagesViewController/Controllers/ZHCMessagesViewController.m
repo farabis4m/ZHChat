@@ -1037,7 +1037,7 @@
 
 - (void)keyboardWillShow: (NSNotification *) notif{
     // Show Button
-    self.inputMessageBarView.contentView.middleLeftBarButtonContainerViewWidthConstraint.constant = KBUTTON_WIDTH;
+    self.inputMessageBarView.contentView.middleLeftBarButtonContainerViewWidthConstraint.constant = 0;
 }
 
 - (void)keyboardWillHide: (NSNotification *) notif{
