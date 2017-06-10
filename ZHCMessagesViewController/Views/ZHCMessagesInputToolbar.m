@@ -60,17 +60,17 @@ CGFloat duration;
     ZHCMessagesToolbarButtonFactory *toolbarButtonFactory = [[ZHCMessagesToolbarButtonFactory alloc] initWithFont:[UIFont boldSystemFontOfSize:17.0]];
     self.contentView.leftBarButtonItem = [toolbarButtonFactory defaultInputViewBarLeftButtonItem];
     self.contentView.rightBarButtonItem = [toolbarButtonFactory defaultInputViewBarRightButtonItem];
-    self.contentView.middleBarButtonItem = [toolbarButtonFactory defaultInputViewBarMiddelButtonItem];
-   // self.contentView.middleLeftBarButtonItem = [toolbarButtonFactory defaultInputViewVoiceLongPressButtonItem];// defaultInputViewBarMiddleLeftButtonItem
+ //   self.contentView.middleBarButtonItem = [toolbarButtonFactory defaultInputViewBarMiddelButtonItem];
+    self.contentView.middleLeftBarButtonItem = [toolbarButtonFactory defaultInputViewBarMiddleLeftButtonItem];//  defaultInputViewVoiceLongPressButtonItem
 //    self.contentView.longPressButton = [toolbarButtonFactory defaultInputViewVoiceLongPressButtonItem];
     self.contentView.longPressButton.hidden = YES;
 
-    [self.contentView.leftBarButtonItem addTarget:self action:@selector(zhc_startRecordVoice:) forControlEvents:UIControlEventTouchDown];
+    [self.contentView.middleLeftBarButtonItem addTarget:self action:@selector(zhc_startRecordVoice:) forControlEvents:UIControlEventTouchDown];
 
-     [self.contentView.leftBarButtonItem addTarget:self action:@selector(zhc_cancelRecordVoice:) forControlEvents:UIControlEventTouchUpOutside];
-    [self.contentView.leftBarButtonItem addTarget:self action:@selector(zhc_confirmRecordVoice:) forControlEvents:UIControlEventTouchUpInside];
-    [self.contentView.leftBarButtonItem addTarget:self action:@selector(zhc_updateCancelRecordVoice) forControlEvents:UIControlEventTouchDragExit];
-    [self.contentView.leftBarButtonItem addTarget:self action:@selector(zhc_updateContinueRecordVoice) forControlEvents:UIControlEventTouchDragEnter];
+     [self.contentView.middleLeftBarButtonItem addTarget:self action:@selector(zhc_cancelRecordVoice:) forControlEvents:UIControlEventTouchUpOutside];
+    [self.contentView.middleLeftBarButtonItem addTarget:self action:@selector(zhc_confirmRecordVoice:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView.middleLeftBarButtonItem addTarget:self action:@selector(zhc_updateCancelRecordVoice) forControlEvents:UIControlEventTouchDragExit];
+    [self.contentView.middleLeftBarButtonItem addTarget:self action:@selector(zhc_updateContinueRecordVoice) forControlEvents:UIControlEventTouchDragEnter];
     
     [self toggleSendButtonEnabled];
    

@@ -40,17 +40,15 @@
 
 -(UIButton *)defaultInputViewBarLeftButtonItem
 {
-    UIImage	 *recordImage = [UIImage zhc_recorderImage];
-    UIImage  *highlightedRecordImage = [UIImage zhc_highlightedRecorderImage];
+    UIImage *cameraImage = [UIImage zhc_cameraImage];
     
-    UIButton *recordButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [recordButton setImage:recordImage forState:UIControlStateNormal];
-    [recordButton setImage:highlightedRecordImage forState:UIControlStateSelected];
-    recordButton.contentMode = UIViewContentModeScaleAspectFit;
-    recordButton.backgroundColor = [UIColor clearColor];
-    recordButton.tintColor = [UIColor lightGrayColor];
-    recordButton.titleLabel.font = self.buttonFont;
-    return recordButton;
+    UIButton *cameraButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 25)];
+    [cameraButton setBackgroundImage:cameraImage forState:UIControlStateNormal];
+    cameraButton.contentMode = UIViewContentModeScaleAspectFit;
+    cameraButton.backgroundColor = [UIColor clearColor];
+    cameraButton.tintColor = [UIColor lightGrayColor];
+    cameraButton.titleLabel.font = self.buttonFont;
+    return cameraButton;
 }
 
 -(UIButton *)defaultInputViewBarRightButtonItem
@@ -70,13 +68,12 @@
 
 -(UIButton *)defaultInputViewBarMiddelButtonItem
 {
-//    UIImage *emotionImage = [UIImage zhc_defaultEmotionImage];
-//    UIImage *keyboardImage = [UIImage zhc_defaultKeyboardImage];
-
-    UIImage *cameraImage = [UIImage zhc_cameraImage];
+    UIImage *emotionImage = [UIImage zhc_defaultEmotionImage];
+    UIImage *keyboardImage = [UIImage zhc_defaultKeyboardImage];
     
     UIButton *emotionButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 25)];
-    [emotionButton setBackgroundImage:cameraImage forState:UIControlStateNormal];
+    [emotionButton setBackgroundImage:emotionImage forState:UIControlStateNormal];
+    [emotionButton setImage:keyboardImage forState:UIControlStateSelected];
     emotionButton.contentMode = UIViewContentModeScaleAspectFit;
     emotionButton.backgroundColor = [UIColor clearColor];
     emotionButton.tintColor = [UIColor lightGrayColor];
@@ -88,11 +85,11 @@
 -(UIButton *)defaultInputViewBarMiddleLeftButtonItem
 {
     UIImage *voiceImage = [UIImage zhc_defaultVoiceImage];
-    UIImage *keyboardImage = [UIImage zhc_defaultKeyboardImage];
+    UIImage *highlightedImage = [UIImage zhc_highlightedPressVoiceImage];
     
-    UIButton *voiceButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 35, 35)];
+    UIButton *voiceButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
     [voiceButton setImage:voiceImage forState:UIControlStateNormal];
-    [voiceButton setImage:keyboardImage forState:UIControlStateSelected];
+    [voiceButton setImage:highlightedImage forState:UIControlStateHighlighted];
     voiceButton.contentMode = UIViewContentModeScaleAspectFit;
     voiceButton.backgroundColor = [UIColor clearColor];
     voiceButton.tintColor = [UIColor lightGrayColor];

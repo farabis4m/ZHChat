@@ -83,7 +83,7 @@
 
 +(UIImage *)zhc_defaultVoiceImage
 {
-    return [UIImage zhc_bubbleImageFromBundleWithName:@"ToolViewInputVoice"];
+    return [UIImage zhc_bubbleImageFromBundleWithName:@"microphone"];
 }
 
 +(UIImage *)zhc_defaultKeyboardImage
@@ -111,10 +111,10 @@
 
 +(UIImage *)zhc_highlightedPressVoiceImage
 {
-    UIImage *image = [UIImage zhc_bubbleImageFromBundleWithName:@"VoicePressHL"];
-    UIEdgeInsets capInsets = [UIImage zhc_centerPointEdgeInsetsForImageSize:image.size];
-    UIImage *stretchImage = [UIImage zhc_stretchableImageFromImage:image withCapInsets:capInsets];
-    return stretchImage;
+//    UIImage *image = [UIImage zhc_bubbleImageFromBundleWithName:@"circlemic"];
+//    UIEdgeInsets capInsets = [UIImage zhc_centerPointEdgeInsetsForImageSize:image.size];
+//    UIImage *stretchImage = [UIImage zhc_stretchableImageFromImage:image withCapInsets:capInsets];
+    return [UIImage zhc_bubbleImageFromBundleWithName:@"circlemic"];;
 }
 
 +(UIImage *)zhc_cameraImage {
