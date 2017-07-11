@@ -92,7 +92,7 @@
         CGFloat maxTextViewWidth = 0.0;
         maxTextViewWidth = bubbleWidth - (textViewHorizontallySpaceWithAvatar + attributes.textViewTextContainerInsets.left + attributes.textViewTextContainerInsets.right);
        
-      CGRect stringRect = [[messageData text]boundingRectWithSize:CGSizeMake(maxTextViewWidth, CGFLOAT_MAX) options:(NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin) attributes:@{ NSFontAttributeName : attributes.messageBubbleFont } context:nil];
+      CGRect stringRect = [[self handleEmojisInMessageText:[messageData text]]boundingRectWithSize:CGSizeMake(maxTextViewWidth, CGFLOAT_MAX) options:(NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin) attributes:@{ NSFontAttributeName : attributes.messageBubbleFont } context:nil];
         
 //        ZHCMessagesTableViewCell *cell = [tableView messageTableViewDequeueReusableCellWithIndexPath:indexPath];
 //        cell.textView.font = attributes.messageBubbleFont;
@@ -125,6 +125,16 @@
 
 
 #pragma mark Utilities
+
+-(NSString *)handleEmojisInMessageText:(NSString *)encodedString {
+    
+    NSString *convertedString = [encodedString mutableCopy];
+    CFStringRef transform = CFSTR("Any-Hex/Java");
+    CFStringTransform((__bridge CFMutableStringRef)convertedString, NULL, transform, YES);
+    return convertedString;
+}
+
+
 - (CGSize)zhc_avatarSizeForMessageData:(id<ZHCMessageData>)messageData withTableView:(ZHCMessagesTableView *)tableView
 
 {
