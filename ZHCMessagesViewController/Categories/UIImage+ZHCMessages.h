@@ -103,18 +103,22 @@
 +(UIImage *)zhc_cameraImage;
 
 /**
- *  @return The camera image .
+ *  @return The Recorder image .
  */
 +(UIImage *)zhc_recorderImage;
 
 /**
- *  @return The camera image .
+ *  @return The highlightedRecord image .
  */
 +(UIImage *)zhc_highlightedRecorderImage;
 
 /**
- *  @return The camera image .
+ *  @return The Send image .
  */
 +(UIImage *)zhc_sendImage;
 
+/**
+ *  @return The SendActive image .
+ */
++(UIImage *)zhc_sendActiveImage ;
 @end

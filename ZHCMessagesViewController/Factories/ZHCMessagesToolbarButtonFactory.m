@@ -54,10 +54,12 @@
 -(UIButton *)defaultInputViewBarRightButtonItem
 {
     UIImage *sendImage = [UIImage zhc_sendImage];
+    UIImage *sendActiveImage = [UIImage zhc_sendActiveImage];
     
     UIButton *sendButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 35, 35)];
     [sendButton setImage:sendImage forState:UIControlStateNormal];
-    [sendButton setImage:sendImage forState:UIControlStateSelected];
+    [sendButton setImage:sendActiveImage forState:UIControlStateHighlighted];
+    [sendButton setImage:sendActiveImage forState:UIControlStateSelected];
     sendButton.contentMode = UIViewContentModeScaleAspectFit;
     sendButton.backgroundColor = [UIColor clearColor];
     sendButton.tintColor = [UIColor lightGrayColor];

@@ -133,6 +133,9 @@
     return [UIImage zhc_bubbleImageFromBundleWithName:@"send"];
 }
 
++(UIImage *)zhc_sendActiveImage {
+    return [UIImage zhc_bubbleImageFromBundleWithName:@"sendActive"];
+}
 
 
 +(UIImage *)zhc_getImageWithImageName:(NSString *)imgName

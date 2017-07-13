@@ -58,6 +58,7 @@ const CGFloat kZHCMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
     self.middleHorizontalSpacingConstraint.constant = kZHCMessagesToolbarContentViewHorizontalSpacingDefault;
     self.backgroundColor = [UIColor clearColor];
     
+    [self zhc_addTextViewNotificationObservers];
 }
 
 #pragma mark - Setters
@@ -301,6 +302,36 @@ const CGFloat kZHCMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
     [self.textView setNeedsDisplay];
 }
 
+- (void)zhc_addTextViewNotificationObservers {
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(zhc_didReceiveTextViewNotification:)
+                                                 name:UITextViewTextDidChangeNotification
+                                               object:self.textView];
+}
+
+- (void)zhc_removeTextViewNotificationObservers {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UITextViewTextDidChangeNotification
+                                                  object:self];
+}
+
+- (void)zhc_didReceiveTextViewNotification:(NSNotification *)notification
+{
+    [self setNeedsDisplay];
+    
+    [self highlightSendButtonImage:[self.textView hasText]];
+}
+
+-(void)highlightSendButtonImage:(BOOL)highlight {
+    
+    [self.rightBarButtonItem setHighlighted:highlight];
+}
+
+-(void)dealloc {
+    [self zhc_removeTextViewNotificationObservers];
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
