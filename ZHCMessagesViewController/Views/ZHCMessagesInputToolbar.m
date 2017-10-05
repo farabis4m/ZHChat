@@ -136,8 +136,23 @@ CGFloat duration;
  */
 -(void)zhc_startRecordVoice:(UIButton *)sender
 {
+    // First request for audio permission
+    __weak typeof(self)weakSelf = self;
+    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio completionHandler:^(BOOL granted) {
+        
+        if(!granted) {
+            [weakSelf.delegate messagesInputToolbar:self status:[AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio]];
+        }else {
+            [weakSelf startRecording:sender];
+        }
+        
+    }];
+}
+
+-(void)startRecording:(UIButton *)sender {
+    
     sender.highlighted = YES;
-  //  [ZHCMessagesAudioProgressHUD zhc_show];
+    //  [ZHCMessagesAudioProgressHUD zhc_show];
     duration = 0;
     [_recorder zhc_startRecording];
     
@@ -161,8 +176,6 @@ CGFloat duration;
         self.contentView.progressView.hidden = YES;
         self.contentView.textView.hidden = NO;
     }];
-    
-    
 }
 
 /**

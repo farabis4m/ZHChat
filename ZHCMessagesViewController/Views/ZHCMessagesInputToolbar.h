@@ -72,6 +72,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param senconds      The Voice duration time.
  */
 - (void)messagesInputToolbar:(ZHCMessagesInputToolbar *)toolbar sendVoice:(NSString *)voiceFilePath seconds:(NSTimeInterval)senconds;
+
+/**
+ *  Tells the delegate that Voice recording permission is not given.
+ *
+ *  @param toolbar The object representing the toolbar sending this information.
+ *  @param voiceFilePath The Voice file path.
+ *  @param senconds      The Voice duration time.
+ */
+- (void)messagesInputToolbar:(ZHCMessagesInputToolbar *)toolbar status:(AVAuthorizationStatus)status;
+
 @end
 
 /**
