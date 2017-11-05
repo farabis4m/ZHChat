@@ -168,13 +168,19 @@ CGFloat duration;
     [self.contentView.progressView addSubview:_progressBarImageView];
     [self.contentView.progressView bringSubviewToFront:self.contentView.swipeToCancelLabel];
     [self.contentView.progressView bringSubviewToFront:self.contentView.recordingTimeLabel];
-    
+    __weak typeof(self) weakSelf = self;
     [UIView animateWithDuration:5.0 animations:^{
-        [_progressBarImageView setFrame:self.contentView.progressView.bounds];
+        [_progressBarImageView setFrame:weakSelf.contentView.progressView.bounds];
     } completion:^(BOOL finished) {
-        [_progressBarImageView removeFromSuperview];
-        self.contentView.progressView.hidden = YES;
-        self.contentView.textView.hidden = NO;
+        [UIView transitionWithView:weakSelf.contentView.progressView
+                          duration:0.25f
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                        } completion:^(BOOL finished) {
+                            [_progressBarImageView removeFromSuperview];
+                            weakSelf.contentView.progressView.hidden = YES;
+                            weakSelf.contentView.textView.hidden = NO;
+                        }];
     }];
 }
 
