@@ -107,6 +107,15 @@
     [self.delegate tableView:self performAction:action forcellAtIndexPath:indexPath withSender:sender];
 }
 
+-(void)editButtonTapped:(ZHCMessagesTableViewCell *)cell{
+    NSIndexPath *indexPath = [self indexPathForCell:cell];
+    if (indexPath == nil) {
+        return;
+    }
+    [self.delegate editButtonTappedAtIndexPath:indexPath];
+}
+
+
 -(ZHCMessagesTableViewCell *)messageTableViewDequeueReusableCellWithIndexPath:(NSIndexPath *)indexPath
 {
  
