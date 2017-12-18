@@ -23,7 +23,7 @@
 #import "ZHCMessagesComposerTextView.h"
 #import "ZHCMessagesToolbarContentView.h"
 #import "ZHCMessagesTableView.h"
-
+#import "ZHCMessagesEditTableView.h"
 
 //Models
 #import "ZHCMessagesBubbleImage.h"
