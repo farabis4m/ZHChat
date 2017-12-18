@@ -39,7 +39,7 @@
 #import "ZHCMessagesTableViewDataSource.h"
 #import "ZHCMessageBubbleImageDataSource.h"
 #import "ZHCMessageAvatarImageDataSource.h"
-
+#import "ZHCPhotoBubbleMediaItem.h"
 
 //Categories
 #import "UIImage+ZHCMessages.h"
