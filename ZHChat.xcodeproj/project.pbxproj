@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4EE999056840ED1C0B4486BA /* libPods-ZHChatTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D52FC94A5C3C6F85AC123C /* libPods-ZHChatTests.a */; };
+		59E85B861FE7D9D600985F49 /* ZHCPhotoBubbleMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E85B851FE7D9D600985F49 /* ZHCPhotoBubbleMediaItem.m */; };
+		59E879071FE68DFF00740362 /* ZHCMessagesTableViewCellEditOutcoming.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E879051FE68DFF00740362 /* ZHCMessagesTableViewCellEditOutcoming.m */; };
+		59E879081FE68DFF00740362 /* ZHCMessagesTableViewCellEditOutcoming.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E879061FE68DFF00740362 /* ZHCMessagesTableViewCellEditOutcoming.xib */; };
 		87FA1F8B3FCF10E4EC38267D /* libPods-ZHChatUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 997BF6C7A6A62528738E5809 /* libPods-ZHChatUITests.a */; };
 		9E4F0F341E89FA9900A3232F /* ZHPhotoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E4F0F331E89FA9900A3232F /* ZHPhotoItem.m */; };
 		9E4F0F391E89FEDD00A3232F /* ZHCNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E4F0F381E89FEDD00A3232F /* ZHCNetManager.m */; };
@@ -105,6 +108,11 @@
 /* Begin PBXFileReference section */
 		1E98EEA4554551076FA93A42 /* Pods-ZHChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZHChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZHChatUITests/Pods-ZHChatUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3C7F728CF1DD7063A175E9FB /* Pods-ZHChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZHChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZHChat/Pods-ZHChat.release.xcconfig"; sourceTree = "<group>"; };
+		59E85B841FE7D9D600985F49 /* ZHCPhotoBubbleMediaItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHCPhotoBubbleMediaItem.h; sourceTree = "<group>"; };
+		59E85B851FE7D9D600985F49 /* ZHCPhotoBubbleMediaItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHCPhotoBubbleMediaItem.m; sourceTree = "<group>"; };
+		59E879041FE68DFF00740362 /* ZHCMessagesTableViewCellEditOutcoming.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHCMessagesTableViewCellEditOutcoming.h; sourceTree = "<group>"; };
+		59E879051FE68DFF00740362 /* ZHCMessagesTableViewCellEditOutcoming.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHCMessagesTableViewCellEditOutcoming.m; sourceTree = "<group>"; };
+		59E879061FE68DFF00740362 /* ZHCMessagesTableViewCellEditOutcoming.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZHCMessagesTableViewCellEditOutcoming.xib; sourceTree = "<group>"; };
 		5F33DA8667327F85E74306B1 /* Pods-ZHChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZHChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZHChat/Pods-ZHChat.debug.xcconfig"; sourceTree = "<group>"; };
 		69FD081D86E12EE76607210D /* libPods-ZHChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZHChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70262FCBC217FB74C3E99AD3 /* Pods-ZHChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZHChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZHChatTests/Pods-ZHChatTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -483,6 +491,8 @@
 				9E93FD401D77C8B6002654AD /* ZHCMessageBubbleImageDataSource.h */,
 				9E93FD471D77C8B6002654AD /* ZHCMessagesTableViewDataSource.h */,
 				9E93FD481D77C8B6002654AD /* ZHCMessagesTableViewDelegate.h */,
+				59E85B841FE7D9D600985F49 /* ZHCPhotoBubbleMediaItem.h */,
+				59E85B851FE7D9D600985F49 /* ZHCPhotoBubbleMediaItem.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -532,6 +542,9 @@
 				9E93FD621D77C8B6002654AD /* ZHCMessagesMoreItem.m */,
 				9E93FD531D77C8B6002654AD /* ZHCMessagesAudioProgressHUD.h */,
 				9E93FD541D77C8B6002654AD /* ZHCMessagesAudioProgressHUD.m */,
+				59E879041FE68DFF00740362 /* ZHCMessagesTableViewCellEditOutcoming.h */,
+				59E879051FE68DFF00740362 /* ZHCMessagesTableViewCellEditOutcoming.m */,
+				59E879061FE68DFF00740362 /* ZHCMessagesTableViewCellEditOutcoming.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -772,6 +785,7 @@
 				9E93FD9F1D77C8B6002654AD /* ZHCMessagesToolbarContentView.xib in Resources */,
 				9EB371D51D704CF000FDFF1B /* chat_bar_icons_camera@2x.png in Resources */,
 				9EC8D5DB1D6ED56B0020C40B /* Localizable.strings in Resources */,
+				59E879081FE68DFF00740362 /* ZHCMessagesTableViewCellEditOutcoming.xib in Resources */,
 				9E93FD9D1D77C8B6002654AD /* ZHCMessagesTableViewCellOutcoming.xib in Resources */,
 				9E92B2DA1D58219F00736447 /* LaunchScreen.storyboard in Resources */,
 				9EB371DB1D704CF000FDFF1B /* chat_bar_icons_pic@2x.png in Resources */,
@@ -816,13 +830,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZHChatUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2E8BF3FAD992FB554304A489 /* [CP] Copy Pods Resources */ = {
@@ -846,13 +863,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZHChatTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6EE559014087FA5C2659D8F7 /* [CP] Check Pods Manifest.lock */ = {
@@ -861,13 +881,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZHChat-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7401BFF0BD5CBF6C5A3818BB /* [CP] Embed Pods Frameworks */ = {
@@ -959,6 +982,7 @@
 				9EB394601E893B4A006D567A /* ZHUseFDModel.m in Sources */,
 				9E93FD9A1D77C8B6002654AD /* ZHCMessagesTableViewCellIncoming.m in Sources */,
 				9E92B2CF1D58219F00736447 /* AppDelegate.m in Sources */,
+				59E879071FE68DFF00740362 /* ZHCMessagesTableViewCellEditOutcoming.m in Sources */,
 				9E93FD991D77C8B6002654AD /* ZHCMessagesTableViewCell.m in Sources */,
 				9E93FD7F1D77C8B6002654AD /* ZHCMessagesMediaViewBubbleImageMasker.m in Sources */,
 				9E93FD931D77C8B6002654AD /* ZHCMessagesInputToolbar.m in Sources */,
@@ -979,6 +1003,7 @@
 				9E93FD8D1D77C8B6002654AD /* ZHCMessagesAudioPlayer.m in Sources */,
 				9E93FD8A1D77C8B6002654AD /* ZHCMessagesBubbleImage.m in Sources */,
 				9E93FD8F1D77C8B6002654AD /* ZHCMessagesAudioProgressHUD.m in Sources */,
+				59E85B861FE7D9D600985F49 /* ZHCPhotoBubbleMediaItem.m in Sources */,
 				9E93FD891D77C8B6002654AD /* ZHCMessagesAvatarImage.m in Sources */,
 				9E93FD8E1D77C8B6002654AD /* ZHCMessagesVoiceRecorder.m in Sources */,
 				9E93FD851D77C8B6002654AD /* ZHCAudioMediaItem.m in Sources */,
