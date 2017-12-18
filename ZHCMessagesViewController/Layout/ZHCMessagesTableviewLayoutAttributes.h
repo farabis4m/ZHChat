@@ -111,5 +111,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @see ZHCMessagesTableviewCell.
  */
 @property (assign, nonatomic) CGFloat cellBottomLabelHeight;
+
++(void) setEditEnabled:(BOOL)edit;
 @end
 NS_ASSUME_NONNULL_END

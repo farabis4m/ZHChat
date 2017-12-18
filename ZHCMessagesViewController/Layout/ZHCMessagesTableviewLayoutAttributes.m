@@ -5,12 +5,11 @@
 //  Created by aimoke on 16/8/11.
 //  Copyright © 2016年 zhuo. All rights reserved.
 //
-
 #import "ZHCMessagesTableviewLayoutAttributes.h"
 #import "ZHCMessagesCommonParameter.h"
 
 @implementation ZHCMessagesTableviewLayoutAttributes
-
+static BOOL isEditEnabled;
 +(instancetype)shareZHCMessagesTableviewLayoutAttributesFactory
 {
     static ZHCMessagesTableviewLayoutAttributes *attributes = nil;
@@ -29,7 +28,7 @@
     if (self) {
         _messageBubbleFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
         _textViewTextContainerInsets = UIEdgeInsetsMake(5.0f, 15.0f, 5.0f, 15.0f);
-        _textViewTextFrameInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 6.0f);
+        _textViewTextFrameInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, isEditEnabled ? 35.0f : 6.0f);
         _incomingAvatarViewSize = CGSizeMake(kZHCMessagesTableViewCellAvatarSizeDefault, kZHCMessagesTableViewCellAvatarSizeDefault);
         _outgoingAvatarViewSize = CGSizeMake(kZHCMessagesTableViewCellAvatarSizeDefault, kZHCMessagesTableViewCellAvatarSizeDefault);
         _cellTopLabelHeight = kZHCMessagesTableViewCellLabelHeightDefault;
@@ -181,5 +180,8 @@
     return ceilf(height);
 }
 
-
++(void) setEditEnabled:(BOOL)edit{
+    
+     isEditEnabled = edit;
+}
 @end
