@@ -9,6 +9,7 @@
 #import "ZHCPhotoBubbleMediaItem.h"
 @interface ZHCPhotoBubbleMediaItem()
 @property (strong, nonatomic) UIImageView *cachedImageView;
+@property CGSize size;
 @end
 
 @implementation ZHCPhotoBubbleMediaItem
@@ -20,6 +21,7 @@
     }
     
     if (self.cachedImageView == nil) {
+        self.size = self.image.size;
         CGSize size = [self mediaViewDisplaySize];
         UIImageView *imageView = [[UIImageView alloc] initWithImage:self.image];
         imageView.frame = CGRectMake(10.0f, 10.0f, size.width, size.height);
@@ -31,4 +33,12 @@
     return self.cachedImageView;
 }
 
+- (CGSize)mediaViewDisplaySize
+{
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        return CGSizeMake(315.0f, 225.0f);
+    }
+    
+    return CGSizeMake(135.0f, 110.0f);
+}
 @end

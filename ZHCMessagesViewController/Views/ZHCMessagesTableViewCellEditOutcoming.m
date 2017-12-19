@@ -28,15 +28,15 @@
     
     [self.textView removeFromSuperview];
     CGRect f = mediaView.frame;
-    f.size.height = self.messageBubbleImageView.frame.size.height - 30;
-    f.size.width = self.messageBubbleImageView.frame.size.width - 80;
+    f.size.height = self.messageBubbleImageView.frame.size.height - 65;
+    f.size.width = self.messageBubbleImageView.frame.size.width - 150;
     mediaView.frame = f;
     [self.messageBubbleContainerView addSubview:mediaView];
     mediaView.clipsToBounds = YES;
     [self.messageBubbleContainerView zhc_pinSubview:mediaView toEdge:NSLayoutAttributeBottom withConstant:-2.0f];
     
-    [mediaView zhc_pinSelfToEdge:NSLayoutAttributeHeight withConstant:CGRectGetHeight(self.messageBubbleImageView.frame)];
-    [mediaView zhc_pinSelfToEdge:NSLayoutAttributeWidth withConstant:CGRectGetWidth(self.messageBubbleImageView.frame)];
+    //[mediaView zhc_pinSelfToEdge:NSLayoutAttributeHeight withConstant:CGRectGetHeight(self.messageBubbleImageView.frame)];
+    //[mediaView zhc_pinSelfToEdge:NSLayoutAttributeWidth withConstant:CGRectGetWidth(self.messageBubbleImageView.frame)];
     
     if (isOutgoingMessage) {
         [self.messageBubbleContainerView zhc_pinSubview:mediaView toEdge:NSLayoutAttributeTrailing withConstant:-50.0f];

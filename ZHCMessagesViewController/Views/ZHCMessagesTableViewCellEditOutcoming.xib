@@ -91,7 +91,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZe-CL-2zw">
                                 <rect key="frame" x="191" y="33" width="30" height="30"/>
                                 <state key="normal" title="Edit">
-                                    <color key="titleColor" red="0.078431372550000003" green="0.45098039220000002" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.048441760241985321" green="0.36983567476272583" blue="0.65218979120254517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="editButtonAction:" destination="Ofj-fx-uO6" eventType="touchUpInside" id="MIU-0b-pKF"/>
