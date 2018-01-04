@@ -235,13 +235,8 @@ CGFloat duration;
     self.contentView.middleBarButtonItem.selected = NO;
     sender.selected = !sender.selected;
     [self.delegate messagesInputToolbar:self didPressLeftBarButton:sender];
-    if (sender.selected) {
-        [self.contentView.textView resignFirstResponder];
-        
-    }else{
-        [self.contentView.textView becomeFirstResponder];
-    }
-
+    // keyboard showing on clicking the camera button for the second time issue fixed
+    [self.contentView.textView resignFirstResponder];
 }
 
 - (void)zhc_rightBarButtonPressed:(UIButton *)sender
