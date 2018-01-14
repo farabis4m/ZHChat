@@ -12,6 +12,8 @@
 @interface ZHCMessagesTableViewCellOutcoming : ZHCMessagesTableViewCell
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewAlignmentConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewTraingConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageBubbleLeadingConstraint;
 
 
 @end
