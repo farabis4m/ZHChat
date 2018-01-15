@@ -9,5 +9,7 @@
 #import "ZHCMessagesTableViewCellOutcoming.h"
 
 @interface ZHCMessagesTableViewCellEditOutcoming : ZHCMessagesTableViewCellOutcoming
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintTextViewTrailing;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintMessageBubbleLeading;
 
 @end
