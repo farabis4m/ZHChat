@@ -23,8 +23,6 @@
         self.editButton.hidden = YES;
         self.constraintMessageBubbleLeading.constant = 45;
     }
-    [self layoutIfNeeded];
-    [self layoutSubviews];
     // Initialization code
 }
 
