@@ -13,10 +13,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
-}
-
--(void)setShowEditButton:(BOOL)showEditButton {
     if (self.showEditButton){
         self.constraintTextViewTrailing.constant = 5;
         self.constraintMessageBubbleLeading.constant = 0;
@@ -29,6 +25,7 @@
     }
     [self layoutIfNeeded];
     [self layoutSubviews];
+    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
