@@ -16,20 +16,20 @@
     // Initialization code
 }
 
--(void)setShowEditButton:(BOOL)showEditButton {
-    if (self.showEditButton){
-        self.constraintTextViewTrailing.constant = 5;
-        self.constraintMessageBubbleLeading.constant = 0;
-        self.editButton.hidden = NO;
-    }
-    else {
-        self.constraintTextViewTrailing.constant = -45;
-        self.editButton.hidden = YES;
-        self.constraintMessageBubbleLeading.constant = 45;
-    }
-    [self layoutIfNeeded];
-    [self layoutSubviews];
-}
+//-(void)setShowEditButton:(BOOL)showEditButton {
+//    if (self.showEditButton){
+//        self.constraintTextViewTrailing.constant = 5;
+//        self.constraintMessageBubbleLeading.constant = 0;
+//        self.editButton.hidden = NO;
+//    }
+//    else {
+//        self.constraintTextViewTrailing.constant = -45;
+//        self.editButton.hidden = YES;
+//        self.constraintMessageBubbleLeading.constant = 45;
+//    }
+//    [self layoutIfNeeded];
+//    [self layoutSubviews];
+//}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

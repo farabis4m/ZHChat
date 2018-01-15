@@ -23,9 +23,13 @@
 -(void)setShowEditButton:(BOOL)showEditButton{
     if (showEditButton){
         self.editButton.hidden = NO;
+        self.constraintTextViewTrailing.constant = 24;
+        self.constraintMessageBubbleLeading.constant = 0;
     }
     else {
         self.editButton.hidden = YES;
+        self.constraintTextViewTrailing.constant = 0;
+        self.constraintMessageBubbleLeading.constant = 24;
     }
     [self layoutIfNeeded];
     [self layoutSubviews];
