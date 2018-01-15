@@ -83,7 +83,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="231" height="102.5"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6I0-MX-RPY" customClass="ZHCMessagesCellTextView">
-                                <rect key="frame" x="0.0" y="0.0" width="207" height="102.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="189" height="103"/>
                                 <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -104,7 +104,7 @@
                             <constraint firstItem="Sbx-FP-qUK" firstAttribute="top" secondItem="WFt-sQ-v6q" secondAttribute="top" id="88X-as-LdI"/>
                             <constraint firstItem="6I0-MX-RPY" firstAttribute="bottom" secondItem="Sbx-FP-qUK" secondAttribute="bottom" id="EYx-l5-0KO"/>
                             <constraint firstItem="6I0-MX-RPY" firstAttribute="top" secondItem="Sbx-FP-qUK" secondAttribute="top" id="FvC-rn-tjo"/>
-                            <constraint firstAttribute="trailing" secondItem="6I0-MX-RPY" secondAttribute="trailing" constant="24" id="SgU-ZE-cHg"/>
+                            <constraint firstAttribute="trailing" secondItem="6I0-MX-RPY" secondAttribute="trailing" constant="42" id="SgU-ZE-cHg"/>
                             <constraint firstItem="Sbx-FP-qUK" firstAttribute="leading" secondItem="WFt-sQ-v6q" secondAttribute="leading" id="Sop-WJ-nyZ"/>
                             <constraint firstAttribute="bottom" secondItem="Sbx-FP-qUK" secondAttribute="bottom" id="VC9-AV-694"/>
                             <constraint firstAttribute="trailing" secondItem="fKw-Wg-did" secondAttribute="trailing" constant="10" id="X4g-D5-LoU"/>
