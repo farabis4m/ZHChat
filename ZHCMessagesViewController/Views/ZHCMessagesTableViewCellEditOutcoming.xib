@@ -10,18 +10,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZHCMessagesTableViewCellEditOutcoming">
-            <connections>
-                <outlet property="constraintMessageBubbleLeading" destination="lLQ-S4-S5X" id="lKc-uF-1EP"/>
-                <outlet property="constraintTextViewTrailing" destination="e0V-6w-OOB" id="Vvb-Js-oON"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZHCMessagesTableViewCellEditOutcoming"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="155" id="Ofj-fx-uO6" customClass="ZHCMessagesTableViewCellEditOutcoming">
             <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ofj-fx-uO6" id="T3w-Ag-UWO">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="154.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3U-3C-Rg7" customClass="ZHCMessagesLabel">
@@ -159,6 +154,8 @@
                 <outlet property="cellTopLabelHeightConstraint" destination="AnA-Pr-gQa" id="BSw-gO-2ij"/>
                 <outlet property="cellsSpaceConstraint" destination="A6g-Qu-VVe" id="XHH-Fb-o8Q"/>
                 <outlet property="cellsSpaceLabel" destination="R3U-3C-Rg7" id="hBg-z5-mDq"/>
+                <outlet property="constraintMessageBubbleLeading" destination="lLQ-S4-S5X" id="mis-Jb-JNm"/>
+                <outlet property="constraintTextViewTrailing" destination="e0V-6w-OOB" id="77C-ul-ZQz"/>
                 <outlet property="editButton" destination="MZe-CL-2zw" id="fHS-Cr-ook"/>
                 <outlet property="messageBubbleContainerSpaceWithAvatarView" destination="w9E-aW-FuY" id="Exe-jw-Y74"/>
                 <outlet property="messageBubbleContainerView" destination="2eD-yQ-8YI" id="dPb-bu-mZo"/>
