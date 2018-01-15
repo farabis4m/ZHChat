@@ -154,8 +154,6 @@
                 <outlet property="cellTopLabelHeightConstraint" destination="VFA-we-QYR" id="xUd-m7-HkE"/>
                 <outlet property="cellsSpaceConstraint" destination="bLj-PA-hWs" id="YXU-l4-wIT"/>
                 <outlet property="cellsSpaceLabel" destination="xrA-tq-0ZV" id="1sp-Yt-g9T"/>
-                <outlet property="constraintMessageBubbleLeading" destination="Sop-WJ-nyZ" id="yfN-Lm-Ul4"/>
-                <outlet property="constraintTextViewTrailing" destination="SgU-ZE-cHg" id="vgr-aq-B8h"/>
                 <outlet property="editButton" destination="fKw-Wg-did" id="2si-Ij-45A"/>
                 <outlet property="messageBubbleContainerSpaceWithAvatarView" destination="WEb-Er-3X4" id="YYM-ES-1M7"/>
                 <outlet property="messageBubbleContainerView" destination="WFt-sQ-v6q" id="eaD-J6-PRk"/>
