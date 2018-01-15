@@ -22,10 +22,14 @@
 
 -(void)setShowEditButton:(BOOL)showEditButton{
     if (showEditButton){
+        self.textViewAlignmentConstraint.constant = 24.0;
         self.editButton.hidden = NO;
     }
     else {
+        self.textViewAlignmentConstraint.constant = 11.0;
         self.editButton.hidden = YES;
+        self.messageBubbleLeadingConstraint.constant = 24;
+        self.textViewTraingConstraint.constant = 0;
     }
     [self layoutIfNeeded];
     [self layoutSubviews];

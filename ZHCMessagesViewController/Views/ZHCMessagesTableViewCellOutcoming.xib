@@ -159,12 +159,15 @@
                 <outlet property="messageBubbleContainerView" destination="WFt-sQ-v6q" id="eaD-J6-PRk"/>
                 <outlet property="messageBubbleContainerWidth" destination="rMz-vc-WrK" id="7lI-Ef-8AN"/>
                 <outlet property="messageBubbleImageView" destination="Sbx-FP-qUK" id="mXx-3q-OP8"/>
+                <outlet property="messageBubbleLeadingConstraint" destination="Sop-WJ-nyZ" id="Lbr-AC-R6W"/>
                 <outlet property="messageBubbleTopLabel" destination="Fic-Hc-208" id="8rU-nK-nm6"/>
                 <outlet property="messageBubbleTopLabelHeightConstraint" destination="IBx-pP-RYY" id="cnG-8b-pEF"/>
                 <outlet property="textView" destination="6I0-MX-RPY" id="4jS-p4-H0K"/>
+                <outlet property="textViewAlignmentConstraint" destination="SgU-ZE-cHg" id="jQ9-Wq-MkQ"/>
                 <outlet property="textViewBottomVerticalSpaceConstraint" destination="EYx-l5-0KO" id="awT-bo-jpm"/>
                 <outlet property="textViewMarginHorizontalSpaceConstraint" destination="4ew-0h-qbW" id="Bce-dg-nK8"/>
                 <outlet property="textViewTopVerticalSpaceConstraint" destination="FvC-rn-tjo" id="GvY-lT-pai"/>
+                <outlet property="textViewTraingConstraint" destination="SgU-ZE-cHg" id="ZXI-G3-UOK"/>
             </connections>
             <point key="canvasLocation" x="272" y="502.5"/>
         </tableViewCell>
