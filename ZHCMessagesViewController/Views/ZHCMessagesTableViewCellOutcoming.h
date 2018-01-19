@@ -10,6 +10,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ZHCMessagesTableViewCellOutcoming : ZHCMessagesTableViewCell
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewAlignmentConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
 
 
 @end

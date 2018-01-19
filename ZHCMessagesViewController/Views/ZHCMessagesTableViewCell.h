@@ -71,6 +71,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)messagesTableViewCell:(ZHCMessagesTableViewCell *)cell didPerformAction:(SEL)action withSender:(id)sender;
 
+@optional
+
+/**
+ *  Tells the delegate that edit button has been selected inside this cell.
+ *  @see `ZHCMessagesTableViewCellOutcoming`
+ */
+- (void)editButtonTapped:(ZHCMessagesTableViewCell *)cell;
+
 @end
 
 
@@ -220,6 +228,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  This gesture handles the tap event for the avatarImageView and notifies the cell's delegate.
  */
 @property (weak, nonatomic, readonly) UITapGestureRecognizer *tapGestureRecognizer;
+
+
+/**
+*  Returns the showEditButton value to show Edit button inside the cell.
+*/
+@property BOOL showEditButton;
 
 /**
  *  Update layout

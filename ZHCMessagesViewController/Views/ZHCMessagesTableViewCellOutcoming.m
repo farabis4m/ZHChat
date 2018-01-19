@@ -17,8 +17,25 @@
     self.messageBubbleTopLabel.textAlignment = NSTextAlignmentRight;
     self.cellBottomLabel.textAlignment = NSTextAlignmentRight;
     self.textView.backgroundColor = [UIColor grayColor];
+    [self setShowEditButton:self.showEditButton];
+  }
+
+-(void)setShowEditButton:(BOOL)showEditButton{
+    if (showEditButton){
+        self.textViewAlignmentConstraint.constant = 24.0;
+        self.editButton.hidden = NO;
+    }
+    else {
+        self.textViewAlignmentConstraint.constant = 11.0;
+        self.editButton.hidden = YES;
+    }
+    [self layoutIfNeeded];
+    [self layoutSubviews];
 }
 
+- (IBAction)editButtonAction:(id)sender {
+    [self.delegate editButtonTapped:self];
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

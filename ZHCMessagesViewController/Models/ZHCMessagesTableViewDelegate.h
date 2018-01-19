@@ -63,5 +63,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 
 - (void)tableView:(ZHCMessagesTableView *)tableView performAction:(SEL)action forcellAtIndexPath:(NSIndexPath *)indexPath withSender:(nullable id)sender;
+
+@optional
+
+/**
+*  Tells the delegate that edit Button in Outcoming Cell tapped.
+*  @see `ZHCMessagesTableView`
+*/
+
+-(void)editButtonTappedAtIndexPath:(NSIndexPath *)indexPath;
+
 @end
 NS_ASSUME_NONNULL_END
