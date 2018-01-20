@@ -77,10 +77,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  Tells the delegate that Voice recording permission is not given.
  *
  *  @param toolbar The object representing the toolbar sending this information.
- *  @param voiceFilePath The Voice file path.
- *  @param senconds      The Voice duration time.
+ *  @param status The AVAuthorizationStatus.
  */
 - (void)messagesInputToolbar:(ZHCMessagesInputToolbar *)toolbar status:(AVAuthorizationStatus)status;
+
+/**
+ *  Tells the delegate that recording not finished due to some error.
+ *
+ *  @param toolbar The object representing the toolbar sending this information.
+ *  @param error      The error.
+ */
+- (void)messagesInputToolbar:(ZHCMessagesInputToolbar *)toolbar error:(BOOL)error;
 
 @end
 

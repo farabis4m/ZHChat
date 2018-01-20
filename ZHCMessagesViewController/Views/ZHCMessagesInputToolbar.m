@@ -301,6 +301,7 @@ CGFloat duration;
 - (void)zhc_failRecord
 {
     [ZHCMessagesAudioProgressHUD zhc_dismissWithProgressState:ZHCAudioProgressError];
+    [self.delegate messagesInputToolbar:self error:ZHCAudioProgressError];
 }
 
 #pragma mark - Private Methods
