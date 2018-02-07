@@ -10,5 +10,7 @@
 
 @interface ZHCSelfieTableViewTableViewCell : ZHCMessagesTableViewCellOutcoming
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewSelfie;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintImageViewMediaWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintImageViewMediaHeight;
 
 @end

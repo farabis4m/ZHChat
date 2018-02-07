@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="131"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="130.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="131"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZGL-je-QWU">
@@ -29,7 +29,8 @@
                         <rect key="frame" x="256" y="92" width="40" height="31"/>
                         <color key="backgroundColor" red="0.0" green="0.68201404809951782" blue="0.93591552972793579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="Vcs-GR-QUL"/>
+                            <constraint firstAttribute="width" constant="40" id="YMz-4D-lmn"/>
+                            <constraint firstAttribute="height" constant="31" id="eAQ-K5-akS"/>
                         </constraints>
                         <state key="normal" title="edit"/>
                         <userDefinedRuntimeAttributes>
@@ -37,18 +38,22 @@
                                 <integer key="value" value="5"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="editButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="kOi-Ei-OaJ"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="ZGL-je-QWU" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="A2o-yC-mXb"/>
                     <constraint firstAttribute="bottom" secondItem="ZGL-je-QWU" secondAttribute="bottom" constant="7.5" id="BR5-fF-XHL"/>
-                    <constraint firstItem="dth-dg-jqb" firstAttribute="bottom" secondItem="ZGL-je-QWU" secondAttribute="bottom" id="cJE-5e-RL6"/>
-                    <constraint firstItem="dth-dg-jqb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="92" id="ctL-fk-dCp"/>
+                    <constraint firstAttribute="trailing" secondItem="dth-dg-jqb" secondAttribute="trailing" constant="24" id="XYy-VA-OL3"/>
+                    <constraint firstAttribute="bottom" secondItem="dth-dg-jqb" secondAttribute="bottom" constant="7.5" id="ciR-AV-ETL"/>
                     <constraint firstAttribute="trailing" secondItem="ZGL-je-QWU" secondAttribute="trailing" constant="24" id="cv1-WT-H2b"/>
-                    <constraint firstItem="dth-dg-jqb" firstAttribute="trailing" secondItem="ZGL-je-QWU" secondAttribute="trailing" id="tJm-rY-cN1"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="constraintImageViewMediaHeight" destination="ufF-uu-71o" id="ZWW-6S-XcO"/>
+                <outlet property="constraintImageViewMediaWidth" destination="dbA-4w-DDZ" id="lQG-pq-0OJ"/>
                 <outlet property="editButton" destination="dth-dg-jqb" id="2pG-gM-Tw5"/>
                 <outlet property="imageViewSelfie" destination="ZGL-je-QWU" id="hbg-07-G65"/>
             </connections>

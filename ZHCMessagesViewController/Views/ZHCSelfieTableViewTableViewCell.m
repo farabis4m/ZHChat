@@ -29,6 +29,10 @@
     [self customizeMediaView];
 }
 
+- (IBAction)editButtonAction:(id)sender {
+    [self.delegate editButtonTapped:self];
+}
+
 -(void)customizeMediaView {
     CGRect rect = self.imageViewSelfie.frame;
     rect.size.height = self.frame.size.height - 10;
@@ -37,5 +41,9 @@
     self.imageViewSelfie.layer.cornerRadius = rect.size.width / 2;
     self.imageViewSelfie.layer.masksToBounds = YES;
     self.editButton.layer.cornerRadius = 5;
+    self.editButton.hidden = NO;
+    self.constraintImageViewMediaWidth.constant = rect.size.width;
+    self.constraintImageViewMediaHeight.constant = rect.size.height;
+    
 }
 @end
