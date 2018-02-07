@@ -28,4 +28,13 @@
     }
 }
 
+-(void)customizeMediaView {
+    CGRect rect = self.imageViewSelfie.frame;
+    rect.size.height = self.frame.size.height - 10;
+    rect.size.width = self.frame.size.height - 10;
+    self.imageViewSelfie.frame = rect;
+    self.imageViewSelfie.layer.cornerRadius = rect.size.width / 2;
+    self.imageViewSelfie.layer.masksToBounds = YES;
+    self.editButton.layer.cornerRadius = 5;
+}
 @end

@@ -26,15 +26,24 @@
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dth-dg-jqb">
-                        <rect key="frame" x="266" y="84" width="30" height="39"/>
+                        <rect key="frame" x="256" y="92" width="40" height="31"/>
+                        <color key="backgroundColor" red="0.0" green="0.68201404809951782" blue="0.93591552972793579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="Vcs-GR-QUL"/>
+                        </constraints>
                         <state key="normal" title="edit"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="ZGL-je-QWU" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="A2o-yC-mXb"/>
                     <constraint firstAttribute="bottom" secondItem="ZGL-je-QWU" secondAttribute="bottom" constant="7.5" id="BR5-fF-XHL"/>
                     <constraint firstItem="dth-dg-jqb" firstAttribute="bottom" secondItem="ZGL-je-QWU" secondAttribute="bottom" id="cJE-5e-RL6"/>
-                    <constraint firstItem="dth-dg-jqb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="84" id="ctL-fk-dCp"/>
+                    <constraint firstItem="dth-dg-jqb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="92" id="ctL-fk-dCp"/>
                     <constraint firstAttribute="trailing" secondItem="ZGL-je-QWU" secondAttribute="trailing" constant="24" id="cv1-WT-H2b"/>
                     <constraint firstItem="dth-dg-jqb" firstAttribute="trailing" secondItem="ZGL-je-QWU" secondAttribute="trailing" id="tJm-rY-cN1"/>
                 </constraints>
