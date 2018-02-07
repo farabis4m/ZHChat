@@ -22,6 +22,7 @@
 }
 
 -(void)setMediaView:(UIView *)mediaView withisOutgoingMessage:(BOOL)isOutgoingMessage {
+    self.mediaView = mediaView;
     if ([mediaView isKindOfClass:[UIImageView class]]) {
         self.imageViewSelfie.image = [(UIImageView *)mediaView image];
     }
