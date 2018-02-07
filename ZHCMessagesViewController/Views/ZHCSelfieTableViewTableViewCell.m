@@ -26,6 +26,7 @@
     if ([mediaView isKindOfClass:[UIImageView class]]) {
         self.imageViewSelfie.image = [(UIImageView *)mediaView image];
     }
+    [self customizeMediaView];
 }
 
 -(void)customizeMediaView {
