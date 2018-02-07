@@ -11,6 +11,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef enum : NSUInteger {
+    isDefault,
+    isSelfie,
+    isDocument,
+} MediaMode;
+
 @interface ZHCMessage : NSObject<ZHCMessageData, NSCopying,NSCoding>
 
 
@@ -122,8 +128,10 @@ NS_ASSUME_NONNULL_BEGIN
                             date:(NSDate *)date
                            media:(id<ZHCMessageMediaData>)media;
 
-
-@property BOOL isDocumentMedia;
+/**
+Check for selfie mode , document mode or default mode
+ */
+@property (assign, nonatomic) MediaMode mediaMode;
 
 /**
  *  Not a valid initializer.

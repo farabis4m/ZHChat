@@ -19,23 +19,25 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZGL-je-QWU">
-                        <rect key="frame" x="181" y="8" width="115" height="115"/>
+                        <rect key="frame" x="178" y="8" width="115" height="115"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="115" id="dbA-4w-DDZ"/>
                             <constraint firstAttribute="height" constant="115" id="ufF-uu-71o"/>
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dth-dg-jqb">
-                        <rect key="frame" x="256" y="92" width="40" height="31"/>
+                        <rect key="frame" x="260" y="88" width="50" height="31"/>
                         <color key="backgroundColor" red="0.0" green="0.68201404809951782" blue="0.93591552972793579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="YMz-4D-lmn"/>
+                            <constraint firstAttribute="width" constant="50" id="YMz-4D-lmn"/>
                             <constraint firstAttribute="height" constant="31" id="eAQ-K5-akS"/>
                         </constraints>
-                        <state key="normal" title="edit"/>
+                        <state key="normal" title="Edit">
+                            <color key="titleColor" red="0.047058823529411764" green="0.36862745098039218" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="5"/>
+                                <integer key="value" value="3"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
@@ -46,9 +48,9 @@
                 <constraints>
                     <constraint firstItem="ZGL-je-QWU" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="A2o-yC-mXb"/>
                     <constraint firstAttribute="bottom" secondItem="ZGL-je-QWU" secondAttribute="bottom" constant="7.5" id="BR5-fF-XHL"/>
-                    <constraint firstAttribute="trailing" secondItem="dth-dg-jqb" secondAttribute="trailing" constant="24" id="XYy-VA-OL3"/>
-                    <constraint firstAttribute="bottom" secondItem="dth-dg-jqb" secondAttribute="bottom" constant="7.5" id="ciR-AV-ETL"/>
-                    <constraint firstAttribute="trailing" secondItem="ZGL-je-QWU" secondAttribute="trailing" constant="24" id="cv1-WT-H2b"/>
+                    <constraint firstAttribute="trailing" secondItem="dth-dg-jqb" secondAttribute="trailing" constant="10" id="XYy-VA-OL3"/>
+                    <constraint firstAttribute="bottom" secondItem="dth-dg-jqb" secondAttribute="bottom" constant="11.5" id="ciR-AV-ETL"/>
+                    <constraint firstAttribute="trailing" secondItem="ZGL-je-QWU" secondAttribute="trailing" constant="27" id="cv1-WT-H2b"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

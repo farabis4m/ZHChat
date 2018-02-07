@@ -88,8 +88,8 @@
     self.incomingMediaCellIdentifier = [ZHCMessagesTableViewCellIncoming mediaCellReuseIdentifier];
     self.outgoingMediaCellIdentifier = [ZHCMessagesTableViewCellOutcoming mediaCellReuseIdentifier];
 
-    self.outgoingMediaCellIdentifier = [ZHCMessageSelfieTableViewCell mediaCellReuseIdentifier];
-    self.outgoingMediaCellIdentifier = [ZHCMessageDocumentTableViewCell mediaCellReuseIdentifier];
+    self.outgoingSelfieCellIdentifier = [ZHCMessageSelfieTableViewCell mediaCellReuseIdentifier];
+    self.outgoingDocumentCellIdentifier = [ZHCMessageDocumentTableViewCell mediaCellReuseIdentifier];
     //self.messageTableView.estimatedRowHeight = 100.0;//This can't set
     
     self.topContentAdditionalInset = 0.0f;
@@ -432,7 +432,23 @@
     
     NSString *cellIdentifier = nil;
     if (isMediaMessage) {
-        cellIdentifier = self.outgoingMediaCellIdentifier ;//isOutgoingMessage ? self.outgoingMediaCellIdentifier : self.incomingMediaCellIdentifier;
+        if ([messagecell isKindOfClass:[ZHCMessage class]]) {
+            ZHCMessage *message = (ZHCMessage *)messagecell;
+            if (message.mediaMode == isSelfie) {
+                cellIdentifier = self.outgoingSelfieCellIdentifier ;//isOutgoingMessage ? self.outgoingMediaCellIdentifier : self.incomingMediaCellIdentifier;
+
+            }
+            else if (message.mediaMode == isDocument){
+                cellIdentifier = self.outgoingDocumentCellIdentifier;//isOutgoingMessage ? self.outgoingMediaCellIdentifier : self.incomingMediaCellIdentifier;
+
+            }
+            else {
+                cellIdentifier = isOutgoingMessage ? self.outgoingMediaCellIdentifier : self.incomingMediaCellIdentifier;
+            }
+        }
+        else {
+            cellIdentifier = isOutgoingMessage ? self.outgoingMediaCellIdentifier : self.incomingMediaCellIdentifier;
+        }
     }
     else {
         cellIdentifier = isOutgoingMessage ? self.outgoingCellIdentifier : self.incomingCellIdentifier;
@@ -452,17 +468,13 @@
         id<ZHCMessageMediaData> messageMedia = [messagecell media];
         UIView *view = [messageMedia mediaView] ?:[messageMedia mediaPlaceholderView];
         [cell setMediaView:view withisOutgoingMessage:isOutgoingMessage];
-        if ([messagecell respondsToSelector:NSSelectorFromString(@"isDocumentMedia")]) {
+        if ([messagecell isKindOfClass:[ZHCMessage class]]) {
             ZHCMessage *message = (ZHCMessage *)messagecell;
-            if (message.isDocumentMedia) {
+            if (message.mediaMode == isDocument) {
                 id<ZHCMessageBubbleImageDataSource> bubbleImageDataSource = [tableView.dataSource tableView:tableView messageBubbleImageDataForCellAtIndexPath:indexPath];
                 cell.messageBubbleImageView.image = [bubbleImageDataSource messageBubbleImage];
                 cell.messageBubbleImageView.highlightedImage = [bubbleImageDataSource messageBubbleHighlightedImage];
             }
-            else {
-                
-            }
-            
         }
         
         NSParameterAssert(cell.mediaView !=nil);
@@ -529,7 +541,24 @@
     
     NSString *cellIdentifier = nil;
     if (isMediaMessage) {
-        cellIdentifier = isOutgoingMessage ? self.outgoingMediaCellIdentifier : self.incomingMediaCellIdentifier;
+        if ([messagecell isKindOfClass:[ZHCMessage class]]) {
+            ZHCMessage *message = (ZHCMessage *)messagecell;
+            if (message.mediaMode == isSelfie) {
+                cellIdentifier = self.outgoingSelfieCellIdentifier;
+                
+            }
+            else if (message.mediaMode == isDocument){
+                cellIdentifier = self.outgoingDocumentCellIdentifier;
+                
+            }
+            else {
+                cellIdentifier = isOutgoingMessage ? self.outgoingMediaCellIdentifier : self.incomingMediaCellIdentifier;
+            }
+        }
+        else {
+            cellIdentifier = isOutgoingMessage ? self.outgoingMediaCellIdentifier : self.incomingMediaCellIdentifier;
+        }
+
     }
     else {
         cellIdentifier = isOutgoingMessage ? self.outgoingCellIdentifier : self.incomingCellIdentifier;

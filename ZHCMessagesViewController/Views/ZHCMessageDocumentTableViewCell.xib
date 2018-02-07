@@ -85,22 +85,29 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dD0-9y-epl">
                                 <rect key="frame" x="191" y="36" width="30" height="30"/>
                                 <state key="normal" title="Edit">
-                                    <color key="titleColor" red="0.048441760239999999" green="0.36983567480000001" blue="0.65218979119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.047058823529411764" green="0.36862745098039218" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="editButtonAction:" destination="J5a-Uf-Kwd" eventType="touchUpInside" id="9Ey-g1-mYX"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ggm-pH-SJa">
+                                <rect key="frame" x="20" y="8" width="136" height="87"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="TDX-O2-ZBS" firstAttribute="leading" secondItem="yuE-2z-owt" secondAttribute="leading" id="1J3-i5-hgZ"/>
+                            <constraint firstAttribute="bottom" secondItem="Ggm-pH-SJa" secondAttribute="bottom" constant="7.5" id="3T0-mc-3un"/>
                             <constraint firstItem="TDX-O2-ZBS" firstAttribute="top" secondItem="yuE-2z-owt" secondAttribute="top" id="3b3-pd-V4y"/>
                             <constraint firstAttribute="trailing" secondItem="dD0-9y-epl" secondAttribute="trailing" constant="10" id="GXM-SJ-zEG"/>
                             <constraint firstAttribute="bottom" secondItem="TDX-O2-ZBS" secondAttribute="bottom" id="Uqx-ce-UVq"/>
                             <constraint firstAttribute="width" constant="231" id="V00-Ad-TGb"/>
+                            <constraint firstItem="Ggm-pH-SJa" firstAttribute="leading" secondItem="yuE-2z-owt" secondAttribute="leading" constant="20" id="Xm4-bK-5Vb"/>
                             <constraint firstAttribute="trailing" secondItem="TDX-O2-ZBS" secondAttribute="trailing" id="laV-3r-JCN"/>
                             <constraint firstItem="dD0-9y-epl" firstAttribute="centerY" secondItem="yuE-2z-owt" secondAttribute="centerY" id="qqd-qK-JXo"/>
+                            <constraint firstItem="dD0-9y-epl" firstAttribute="leading" secondItem="Ggm-pH-SJa" secondAttribute="trailing" constant="35" id="u5f-Jm-0aT"/>
+                            <constraint firstItem="Ggm-pH-SJa" firstAttribute="top" secondItem="yuE-2z-owt" secondAttribute="top" constant="8" id="zc2-Ky-Wjh"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -145,6 +152,7 @@
                 <outlet property="cellsSpaceConstraint" destination="riJ-VE-BmW" id="xW6-tH-Qes"/>
                 <outlet property="cellsSpaceLabel" destination="xIq-go-WVo" id="gK7-vs-zC3"/>
                 <outlet property="editButton" destination="dD0-9y-epl" id="JDK-gU-y1Z"/>
+                <outlet property="imageViewDocument" destination="Ggm-pH-SJa" id="3R8-ma-iqr"/>
                 <outlet property="messageBubbleContainerSpaceWithAvatarView" destination="xA9-L5-tH7" id="IHI-os-EyU"/>
                 <outlet property="messageBubbleContainerView" destination="yuE-2z-owt" id="eJM-3V-0RV"/>
                 <outlet property="messageBubbleContainerWidth" destination="V00-Ad-TGb" id="59h-Ch-YJt"/>
@@ -152,7 +160,7 @@
                 <outlet property="messageBubbleTopLabel" destination="ctT-m2-NCw" id="SDe-he-UZl"/>
                 <outlet property="messageBubbleTopLabelHeightConstraint" destination="fuC-Ho-X6t" id="5WF-ni-RoJ"/>
             </connections>
-            <point key="canvasLocation" x="251" y="503"/>
+            <point key="canvasLocation" x="251" y="502.5"/>
         </tableViewCell>
     </objects>
 </document>

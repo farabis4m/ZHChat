@@ -91,6 +91,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (copy, nonatomic) NSString *outgoingMediaCellIdentifier;
 
+@property (copy, nonatomic) NSString *outgoingSelfieCellIdentifier;
+
+@property (copy, nonatomic) NSString *outgoingDocumentCellIdentifier;
+
+
 /**
  *  The TableView cell identifier to use for dequeuing incoming message TableView cells
  *  in the TableView for text messages.
