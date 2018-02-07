@@ -9,8 +9,8 @@
 #import "ZHCMessagesTableView.h"
 #import "ZHCMessagesTableViewCellIncoming.h"
 #import "ZHCMessagesTableViewCellOutcoming.h"
-
-
+#import "ZHCMessageSelfieTableViewCell.h"
+#import "ZHCMessageDocumentTableViewCell.h"
 @implementation ZHCMessagesTableView
 @dynamic delegate;
 @dynamic dataSource;
@@ -58,6 +58,9 @@
     
     [self registerNib:[ZHCMessagesTableViewCellIncoming nib] forCellReuseIdentifier:[ZHCMessagesTableViewCellIncoming mediaCellReuseIdentifier]];
     [self registerNib:[ZHCMessagesTableViewCellOutcoming nib] forCellReuseIdentifier:[ZHCMessagesTableViewCellOutcoming mediaCellReuseIdentifier]];
+
+    [self registerNib:[ZHCMessageDocumentTableViewCell nib] forCellReuseIdentifier:[ZHCMessageDocumentTableViewCell mediaCellReuseIdentifier]];
+     [self registerNib:[ZHCMessageSelfieTableViewCell nib] forCellReuseIdentifier:[ZHCMessageSelfieTableViewCell mediaCellReuseIdentifier]];
     self.tableViewLayout = [[ZHCMessagesTableviewLayoutAttributes alloc]init];
 }
 

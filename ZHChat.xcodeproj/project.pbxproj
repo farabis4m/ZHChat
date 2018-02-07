@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0CC03B1F202AD2960013A3C5 /* ZHCSelfieTableViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC03B1D202AD2960013A3C5 /* ZHCSelfieTableViewTableViewCell.m */; };
-		0CC03B20202AD2960013A3C5 /* ZHCSelfieTableViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CC03B1E202AD2960013A3C5 /* ZHCSelfieTableViewTableViewCell.xib */; };
+		0CC03B1F202AD2960013A3C5 /* ZHCMessageSelfieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC03B1D202AD2960013A3C5 /* ZHCMessageSelfieTableViewCell.m */; };
+		0CC03B20202AD2960013A3C5 /* ZHCMessageSelfieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CC03B1E202AD2960013A3C5 /* ZHCMessageSelfieTableViewCell.xib */; };
+		0CE7A0F3202B195200117BA2 /* ZHCMessageDocumentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7A0F1202B195200117BA2 /* ZHCMessageDocumentTableViewCell.m */; };
+		0CE7A0F4202B195200117BA2 /* ZHCMessageDocumentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE7A0F2202B195200117BA2 /* ZHCMessageDocumentTableViewCell.xib */; };
 		4EE999056840ED1C0B4486BA /* libPods-ZHChatTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D52FC94A5C3C6F85AC123C /* libPods-ZHChatTests.a */; };
 		59E85B861FE7D9D600985F49 /* ZHCPhotoBubbleMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E85B851FE7D9D600985F49 /* ZHCPhotoBubbleMediaItem.m */; };
 		59E85B891FE7EA2400985F49 /* ZHCMessagesEditTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E85B881FE7EA2400985F49 /* ZHCMessagesEditTableView.m */; };
@@ -109,9 +111,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0CC03B1C202AD2960013A3C5 /* ZHCSelfieTableViewTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHCSelfieTableViewTableViewCell.h; sourceTree = "<group>"; };
-		0CC03B1D202AD2960013A3C5 /* ZHCSelfieTableViewTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHCSelfieTableViewTableViewCell.m; sourceTree = "<group>"; };
-		0CC03B1E202AD2960013A3C5 /* ZHCSelfieTableViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZHCSelfieTableViewTableViewCell.xib; sourceTree = "<group>"; };
+		0CC03B1C202AD2960013A3C5 /* ZHCMessageSelfieTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHCMessageSelfieTableViewCell.h; sourceTree = "<group>"; };
+		0CC03B1D202AD2960013A3C5 /* ZHCMessageSelfieTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHCMessageSelfieTableViewCell.m; sourceTree = "<group>"; };
+		0CC03B1E202AD2960013A3C5 /* ZHCMessageSelfieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZHCMessageSelfieTableViewCell.xib; sourceTree = "<group>"; };
+		0CE7A0F0202B195200117BA2 /* ZHCMessageDocumentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHCMessageDocumentTableViewCell.h; sourceTree = "<group>"; };
+		0CE7A0F1202B195200117BA2 /* ZHCMessageDocumentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHCMessageDocumentTableViewCell.m; sourceTree = "<group>"; };
+		0CE7A0F2202B195200117BA2 /* ZHCMessageDocumentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZHCMessageDocumentTableViewCell.xib; sourceTree = "<group>"; };
 		1E98EEA4554551076FA93A42 /* Pods-ZHChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZHChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZHChatUITests/Pods-ZHChatUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3C7F728CF1DD7063A175E9FB /* Pods-ZHChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZHChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZHChat/Pods-ZHChat.release.xcconfig"; sourceTree = "<group>"; };
 		59E85B841FE7D9D600985F49 /* ZHCPhotoBubbleMediaItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHCPhotoBubbleMediaItem.h; sourceTree = "<group>"; };
@@ -550,9 +555,12 @@
 				9E93FD621D77C8B6002654AD /* ZHCMessagesMoreItem.m */,
 				9E93FD531D77C8B6002654AD /* ZHCMessagesAudioProgressHUD.h */,
 				9E93FD541D77C8B6002654AD /* ZHCMessagesAudioProgressHUD.m */,
-				0CC03B1C202AD2960013A3C5 /* ZHCSelfieTableViewTableViewCell.h */,
-				0CC03B1D202AD2960013A3C5 /* ZHCSelfieTableViewTableViewCell.m */,
-				0CC03B1E202AD2960013A3C5 /* ZHCSelfieTableViewTableViewCell.xib */,
+				0CC03B1C202AD2960013A3C5 /* ZHCMessageSelfieTableViewCell.h */,
+				0CC03B1D202AD2960013A3C5 /* ZHCMessageSelfieTableViewCell.m */,
+				0CC03B1E202AD2960013A3C5 /* ZHCMessageSelfieTableViewCell.xib */,
+				0CE7A0F0202B195200117BA2 /* ZHCMessageDocumentTableViewCell.h */,
+				0CE7A0F1202B195200117BA2 /* ZHCMessageDocumentTableViewCell.m */,
+				0CE7A0F2202B195200117BA2 /* ZHCMessageDocumentTableViewCell.xib */,
 				59E879041FE68DFF00740362 /* ZHCMessagesTableViewCellEditOutcoming.h */,
 				59E879051FE68DFF00740362 /* ZHCMessagesTableViewCellEditOutcoming.m */,
 				59E879061FE68DFF00740362 /* ZHCMessagesTableViewCellEditOutcoming.xib */,
@@ -797,6 +805,7 @@
 				9EB394511E893B3B006D567A /* zhc_messages_sample.m4a in Resources */,
 				9E93FD9F1D77C8B6002654AD /* ZHCMessagesToolbarContentView.xib in Resources */,
 				9EB371D51D704CF000FDFF1B /* chat_bar_icons_camera@2x.png in Resources */,
+				0CE7A0F4202B195200117BA2 /* ZHCMessageDocumentTableViewCell.xib in Resources */,
 				9EC8D5DB1D6ED56B0020C40B /* Localizable.strings in Resources */,
 				59E879081FE68DFF00740362 /* ZHCMessagesTableViewCellEditOutcoming.xib in Resources */,
 				9E93FD9D1D77C8B6002654AD /* ZHCMessagesTableViewCellOutcoming.xib in Resources */,
@@ -809,7 +818,7 @@
 				9EB371D91D704CF000FDFF1B /* chat_bar_icons_location@3x.png in Resources */,
 				9E93FD7B1D77C8B6002654AD /* ZHCMessagesViewController.xib in Resources */,
 				9EB371DA1D704CF000FDFF1B /* chat_bar_icons_pic.png in Resources */,
-				0CC03B20202AD2960013A3C5 /* ZHCSelfieTableViewTableViewCell.xib in Resources */,
+				0CC03B20202AD2960013A3C5 /* ZHCMessageSelfieTableViewCell.xib in Resources */,
 				9EB371D71D704CF000FDFF1B /* chat_bar_icons_location.png in Resources */,
 				9E56B90F1D7D173C00F8A727 /* ZHCMessagesAssets.bundle in Resources */,
 				9E93FD9B1D77C8B6002654AD /* ZHCMessagesTableViewCellIncoming.xib in Resources */,
@@ -1023,11 +1032,12 @@
 				9E93FD8E1D77C8B6002654AD /* ZHCMessagesVoiceRecorder.m in Sources */,
 				9E93FD851D77C8B6002654AD /* ZHCAudioMediaItem.m in Sources */,
 				9E93FD821D77C8B6002654AD /* ZHCAudioMediaViewAttributes.m in Sources */,
-				0CC03B1F202AD2960013A3C5 /* ZHCSelfieTableViewTableViewCell.m in Sources */,
+				0CC03B1F202AD2960013A3C5 /* ZHCMessageSelfieTableViewCell.m in Sources */,
 				9E93FD9E1D77C8B6002654AD /* ZHCMessagesToolbarContentView.m in Sources */,
 				9E93FD8B1D77C8B6002654AD /* ZHCPhotoMediaItem.m in Sources */,
 				9E93FD871D77C8B6002654AD /* ZHCMediaItem.m in Sources */,
 				9E93FD911D77C8B6002654AD /* ZHCMessagesComposerTextView.m in Sources */,
+				0CE7A0F3202B195200117BA2 /* ZHCMessageDocumentTableViewCell.m in Sources */,
 				9E93FD981D77C8B6002654AD /* ZHCMessagesTableView.m in Sources */,
 				9E93FD791D77C8B6002654AD /* UIView+ZHCMessages.m in Sources */,
 				9E93FD761D77C8B6002654AD /* NSString+ZHCMessages.m in Sources */,

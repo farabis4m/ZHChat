@@ -123,6 +123,8 @@ NS_ASSUME_NONNULL_BEGIN
                            media:(id<ZHCMessageMediaData>)media;
 
 
+@property BOOL isDocumentMedia;
+
 /**
  *  Not a valid initializer.
  */

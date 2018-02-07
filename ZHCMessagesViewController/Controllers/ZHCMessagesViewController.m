@@ -24,6 +24,8 @@
 #import "ZHCMessagesCommonParameter.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 #import <objc/runtime.h>
+#import "ZHCMessageSelfieTableViewCell.h"
+#import "ZHCMessageDocumentTableViewCell.h"
 
 #define KBUTTON_WIDTH 35
 @interface ZHCMessagesViewController ()<UITextViewDelegate>
@@ -85,6 +87,9 @@
     self.outgoingCellIdentifier = [ZHCMessagesTableViewCellOutcoming cellReuseIdentifier];
     self.incomingMediaCellIdentifier = [ZHCMessagesTableViewCellIncoming mediaCellReuseIdentifier];
     self.outgoingMediaCellIdentifier = [ZHCMessagesTableViewCellOutcoming mediaCellReuseIdentifier];
+
+    self.outgoingMediaCellIdentifier = [ZHCMessageSelfieTableViewCell mediaCellReuseIdentifier];
+    self.outgoingMediaCellIdentifier = [ZHCMessageDocumentTableViewCell mediaCellReuseIdentifier];
     //self.messageTableView.estimatedRowHeight = 100.0;//This can't set
     
     self.topContentAdditionalInset = 0.0f;
@@ -427,7 +432,7 @@
     
     NSString *cellIdentifier = nil;
     if (isMediaMessage) {
-        cellIdentifier = isOutgoingMessage ? self.outgoingMediaCellIdentifier : self.incomingMediaCellIdentifier;
+        cellIdentifier = self.outgoingMediaCellIdentifier ;//isOutgoingMessage ? self.outgoingMediaCellIdentifier : self.incomingMediaCellIdentifier;
     }
     else {
         cellIdentifier = isOutgoingMessage ? self.outgoingCellIdentifier : self.incomingCellIdentifier;
@@ -447,6 +452,19 @@
         id<ZHCMessageMediaData> messageMedia = [messagecell media];
         UIView *view = [messageMedia mediaView] ?:[messageMedia mediaPlaceholderView];
         [cell setMediaView:view withisOutgoingMessage:isOutgoingMessage];
+        if ([messagecell respondsToSelector:NSSelectorFromString(@"isDocumentMedia")]) {
+            ZHCMessage *message = (ZHCMessage *)messagecell;
+            if (message.isDocumentMedia) {
+                id<ZHCMessageBubbleImageDataSource> bubbleImageDataSource = [tableView.dataSource tableView:tableView messageBubbleImageDataForCellAtIndexPath:indexPath];
+                cell.messageBubbleImageView.image = [bubbleImageDataSource messageBubbleImage];
+                cell.messageBubbleImageView.highlightedImage = [bubbleImageDataSource messageBubbleHighlightedImage];
+            }
+            else {
+                
+            }
+            
+        }
+        
         NSParameterAssert(cell.mediaView !=nil);
         
     }

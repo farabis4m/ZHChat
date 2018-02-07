@@ -9,7 +9,8 @@
 #import "ZHCMessagesEditTableView.h"
 #import "ZHCMessagesTableViewCellEditOutcoming.h"
 #import "ZHCMessagesTableViewCellIncoming.h"
-#import "ZHCSelfieTableViewTableViewCell.h"
+#import "ZHCMessageSelfieTableViewCell.h"
+#import "ZHCMessageDocumentTableViewCell.h"
 @implementation ZHCMessagesEditTableView
 
 
@@ -27,7 +28,8 @@
     
     [self registerNib:[ZHCMessagesTableViewCellIncoming nib] forCellReuseIdentifier:[ZHCMessagesTableViewCellIncoming mediaCellReuseIdentifier]];
     [self registerNib:[ZHCMessagesTableViewCellEditOutcoming nib] forCellReuseIdentifier:[ZHCMessagesTableViewCellEditOutcoming mediaCellReuseIdentifier]];
-    [self registerNib:[ZHCSelfieTableViewTableViewCell nib] forCellReuseIdentifier:[ZHCMessagesTableViewCellEditOutcoming mediaCellReuseIdentifier]];
+    [self registerNib:[ZHCMessageSelfieTableViewCell nib] forCellReuseIdentifier:[ZHCMessagesTableViewCellEditOutcoming mediaCellReuseIdentifier]];
+    [self registerNib:[ZHCMessageDocumentTableViewCell nib] forCellReuseIdentifier:[ZHCMessageDocumentTableViewCell mediaCellReuseIdentifier]];
     [ZHCMessagesTableviewLayoutAttributes setEditEnabled:YES];
     self.tableViewLayout = [[ZHCMessagesTableviewLayoutAttributes alloc]init];
 }

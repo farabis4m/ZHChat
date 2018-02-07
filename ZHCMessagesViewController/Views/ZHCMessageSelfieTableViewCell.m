@@ -1,14 +1,14 @@
 //
-//  ZHCSelfieTableViewTableViewCell.m
+//  ZHCMessageSelfieTableViewCell.m
 //  ZHChat
 //
 //  Created by Jafar Khan on 2/7/18.
 //  Copyright © 2018 zhuo. All rights reserved.
 //
 
-#import "ZHCSelfieTableViewTableViewCell.h"
+#import "ZHCMessageSelfieTableViewCell.h"
 
-@implementation ZHCSelfieTableViewTableViewCell
+@implementation ZHCMessageSelfieTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -44,6 +44,7 @@
     self.editButton.hidden = NO;
     self.constraintImageViewMediaWidth.constant = rect.size.width;
     self.constraintImageViewMediaHeight.constant = rect.size.height;
+    self.mediaView.hidden = YES;
     
 }
 @end

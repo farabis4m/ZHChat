@@ -1,5 +1,5 @@
 //
-//  ZHCSelfieTableViewTableViewCell.h
+//  ZHCMessageSelfieTableViewCell.h
 //  ZHChat
 //
 //  Created by Jafar Khan on 2/7/18.
@@ -8,7 +8,7 @@
 
 #import "ZHCMessagesTableViewCellOutcoming.h"
 
-@interface ZHCSelfieTableViewTableViewCell : ZHCMessagesTableViewCellOutcoming
+@interface ZHCMessageSelfieTableViewCell : ZHCMessagesTableViewCellOutcoming
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewSelfie;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintImageViewMediaWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintImageViewMediaHeight;
