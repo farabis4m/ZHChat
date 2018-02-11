@@ -134,6 +134,12 @@ Check for selfie mode , document mode or default mode
 @property (assign, nonatomic) MediaMode mediaMode;
 
 /**
+ Document name of media
+ */
+@property (assign, nonatomic) NSString *documentName;
+
+
+/**
  *  Not a valid initializer.
  */
 - (id)init NS_UNAVAILABLE;
