@@ -138,6 +138,12 @@ Check for selfie mode , document mode or default mode
  */
 @property (assign, nonatomic) NSString *documentName;
 
+/**
+ Document Tyep
+ */
+@property (assign, nonatomic) NSString *documentType;
+
+
 
 /**
  *  Not a valid initializer.
