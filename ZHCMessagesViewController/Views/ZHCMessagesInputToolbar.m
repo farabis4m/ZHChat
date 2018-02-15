@@ -98,10 +98,7 @@ CGFloat duration;
 }
 
 - (NSTimer *)timer{
-    if (_timer) {
-        [_timer invalidate];
-        _timer = nil;
-    }
+    [self invalidateTimer];
     _timer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                               target:self
                                             selector:@selector(timerAction)
@@ -114,8 +111,7 @@ CGFloat duration;
     duration += 0.01;
     _contentView.recordingTimeLabel.text = [NSString stringWithFormat:@"%0.2f",duration];
     if (duration == 0.10) {
-        [_timer invalidate];
-        _timer = nil;
+        [self invalidateTimer];
     }
 }
 
@@ -153,7 +149,7 @@ CGFloat duration;
     
     sender.highlighted = YES;
     //  [ZHCMessagesAudioProgressHUD zhc_show];
-    duration = 0;
+   duration = 0.00;
     [_recorder zhc_startRecording];
     
     [[NSRunLoop mainRunLoop] addTimer:[self timer] forMode:NSRunLoopCommonModes];
@@ -296,10 +292,12 @@ CGFloat duration;
     }else{
         [ZHCMessagesAudioProgressHUD zhc_dismissWithProgressState:ZHCAudioProgressError];
     }
+    [self invalidateTimer];
 }
 
 - (void)zhc_failRecord
 {
+    [self invalidateTimer];
     [ZHCMessagesAudioProgressHUD zhc_dismissWithProgressState:ZHCAudioProgressError];
     [self.delegate messagesInputToolbar:self error:ZHCAudioProgressError];
 }
@@ -310,9 +308,15 @@ CGFloat duration;
     if ((seconds > 0) && self.delegate && [self.delegate respondsToSelector:@selector(messagesInputToolbar:sendVoice:seconds:)]) {
         [self.delegate messagesInputToolbar:self sendVoice:voiceFileName seconds:seconds];
     }
-
 }
 
+- (void)invalidateTimer {
+    if (_timer) {
+        [_timer invalidate];
+        _timer = nil;
+        duration = 0.00;
+    }
+}
 
 #pragma mark - Input toolbar
 
