@@ -132,9 +132,17 @@ CGFloat duration;
  */
 -(void)zhc_startRecordVoice:(UIButton *)sender
 {
+    BOOL isAccessingForTheFirstTime = ([AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio] == AVAuthorizationStatusNotDetermined) ? YES : NO;
+    
     // First request for audio permission
     __weak typeof(self)weakSelf = self;
     [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio completionHandler:^(BOOL granted) {
+        
+        // - To handle requesting permission for the first time scenario. - In this no action need to be performed.
+        if (isAccessingForTheFirstTime) {
+            [sender setHighlighted:NO];
+            return;
+        }
         
         if(!granted) {
             [weakSelf.delegate messagesInputToolbar:self status:[AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio]];
