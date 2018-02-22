@@ -148,6 +148,12 @@ Check for selfie mode , document mode or default mode
  */
 @property (assign, nonatomic) BOOL isUploaded;
 
+/**
+ Document Uploaded is on progress
+ */
+@property (assign, nonatomic) BOOL isOnProgress;
+
+
 
 /**
  *  Not a valid initializer.
