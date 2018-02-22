@@ -139,10 +139,14 @@ Check for selfie mode , document mode or default mode
 @property (assign, nonatomic) NSString *documentName;
 
 /**
- Document Tyep
+ Document Type
  */
 @property (assign, nonatomic) NSString *documentType;
 
+/**
+ Document Successfully Uploaded
+ */
+@property (assign, nonatomic) BOOL isUploaded;
 
 
 /**
