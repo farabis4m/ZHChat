@@ -54,7 +54,7 @@ CGFloat duration;
     self.contentView.progressView.hidden = YES;
     self.contentView.swipeToCancelLabel.hidden = YES;
     self.contentView.textView.hidden = NO;
-    duration = 0.0;
+    duration = 0.00;
     [self zhc_addObservers];
     
     ZHCMessagesToolbarButtonFactory *toolbarButtonFactory = [[ZHCMessagesToolbarButtonFactory alloc] initWithFont:[UIFont boldSystemFontOfSize:17.0]];
@@ -98,10 +98,7 @@ CGFloat duration;
 }
 
 - (NSTimer *)timer{
-    if (_timer) {
-        [_timer invalidate];
-        _timer = nil;
-    }
+    [self invalidateTimer];
     _timer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                               target:self
                                             selector:@selector(timerAction)
@@ -111,11 +108,10 @@ CGFloat duration;
 }
 
 -(void)timerAction {
-    duration += 0.1;
-    _contentView.recordingTimeLabel.text = [NSString stringWithFormat:@"%0.1f",duration];
-    if (duration == 0.5) {
-        [_timer invalidate];
-        _timer = nil;
+    duration += 0.01;
+    _contentView.recordingTimeLabel.text = [NSString stringWithFormat:@"%0.2f",duration];
+    if (duration == 0.10) {
+        [self invalidateTimer];
     }
 }
 
@@ -136,9 +132,17 @@ CGFloat duration;
  */
 -(void)zhc_startRecordVoice:(UIButton *)sender
 {
+    BOOL isAccessingForTheFirstTime = ([AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio] == AVAuthorizationStatusNotDetermined) ? YES : NO;
+    
     // First request for audio permission
     __weak typeof(self)weakSelf = self;
     [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio completionHandler:^(BOOL granted) {
+        
+        // - To handle requesting permission for the first time scenario. - In this no action need to be performed.
+        if (isAccessingForTheFirstTime) {
+            [sender setHighlighted:NO];
+            return;
+        }
         
         if(!granted) {
             [weakSelf.delegate messagesInputToolbar:self status:[AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio]];
@@ -153,7 +157,7 @@ CGFloat duration;
     
     sender.highlighted = YES;
     //  [ZHCMessagesAudioProgressHUD zhc_show];
-    duration = 0;
+   duration = 0.00;
     [_recorder zhc_startRecording];
     
     [[NSRunLoop mainRunLoop] addTimer:[self timer] forMode:NSRunLoopCommonModes];
@@ -161,7 +165,7 @@ CGFloat duration;
     self.contentView.progressView.hidden = NO;
     self.contentView.swipeToCancelLabel.hidden = NO;
     self.contentView.textView.hidden = YES;
-    self.contentView.recordingTimeLabel.text = [NSString stringWithFormat:@"%0.1f",duration];
+    self.contentView.recordingTimeLabel.text = [NSString stringWithFormat:@"%0.2f",duration];
     _progressBarImageView = [self progressBarImageView];
     [_progressBarImageView setBackgroundColor:[UIColor colorWithRed:(103.0/255.0) green:(197.0/255.0) blue:(95.0/255.0) alpha:1.0]];
     [_progressBarImageView setClipsToBounds:YES];
@@ -169,7 +173,7 @@ CGFloat duration;
     [self.contentView.progressView bringSubviewToFront:self.contentView.swipeToCancelLabel];
     [self.contentView.progressView bringSubviewToFront:self.contentView.recordingTimeLabel];
     __weak typeof(self) weakSelf = self;
-    [UIView animateWithDuration:5.0 animations:^{
+    [UIView animateWithDuration:10.0 animations:^{
         [_progressBarImageView setFrame:weakSelf.contentView.progressView.bounds];
     } completion:^(BOOL finished) {
         [UIView transitionWithView:weakSelf.contentView.progressView
@@ -235,13 +239,8 @@ CGFloat duration;
     self.contentView.middleBarButtonItem.selected = NO;
     sender.selected = !sender.selected;
     [self.delegate messagesInputToolbar:self didPressLeftBarButton:sender];
-    if (sender.selected) {
-        [self.contentView.textView resignFirstResponder];
-        
-    }else{
-        [self.contentView.textView becomeFirstResponder];
-    }
-
+    // keyboard showing on clicking the camera button for the second time issue fixed
+    [self.contentView.textView resignFirstResponder];
 }
 
 - (void)zhc_rightBarButtonPressed:(UIButton *)sender
@@ -301,11 +300,14 @@ CGFloat duration;
     }else{
         [ZHCMessagesAudioProgressHUD zhc_dismissWithProgressState:ZHCAudioProgressError];
     }
+    [self invalidateTimer];
 }
 
 - (void)zhc_failRecord
 {
+    [self invalidateTimer];
     [ZHCMessagesAudioProgressHUD zhc_dismissWithProgressState:ZHCAudioProgressError];
+    [self.delegate messagesInputToolbar:self error:ZHCAudioProgressError];
 }
 
 #pragma mark - Private Methods
@@ -314,9 +316,15 @@ CGFloat duration;
     if ((seconds > 0) && self.delegate && [self.delegate respondsToSelector:@selector(messagesInputToolbar:sendVoice:seconds:)]) {
         [self.delegate messagesInputToolbar:self sendVoice:voiceFileName seconds:seconds];
     }
-
 }
 
+- (void)invalidateTimer {
+    if (_timer) {
+        [_timer invalidate];
+        _timer = nil;
+        duration = 0.00;
+    }
+}
 
 #pragma mark - Input toolbar
 

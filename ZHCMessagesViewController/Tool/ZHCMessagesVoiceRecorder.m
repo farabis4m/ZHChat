@@ -7,7 +7,7 @@
 //
 
 #import "ZHCMessagesVoiceRecorder.h"
-#define MaxRecordTime 5
+#define MaxRecordTime 10
 
 @interface ZHCMessagesVoiceRecorder(){
     BOOL isFinishRecordBool;//Record finish Bool

@@ -130,10 +130,16 @@
 }
 
 +(UIImage *)zhc_sendImage {
+    if ([UIApplication sharedApplication].userInterfaceLayoutDirection == UIUserInterfaceLayoutDirectionRightToLeft){
+        return [[UIImage zhc_bubbleImageFromBundleWithName:@"send"] imageFlippedForRightToLeftLayoutDirection];
+    }
     return [UIImage zhc_bubbleImageFromBundleWithName:@"send"];
 }
 
 +(UIImage *)zhc_sendActiveImage {
+    if ([UIApplication sharedApplication].userInterfaceLayoutDirection == UIUserInterfaceLayoutDirectionRightToLeft){
+        return [[UIImage zhc_bubbleImageFromBundleWithName:@"sendActive"] imageFlippedForRightToLeftLayoutDirection];
+    }
     return [UIImage zhc_bubbleImageFromBundleWithName:@"sendActive"];
 }
 
