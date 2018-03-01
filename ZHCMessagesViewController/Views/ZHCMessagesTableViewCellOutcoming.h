@@ -14,6 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewTraingConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageBubbleLeadingConstraint;
-
+@property BOOL isFromAccountOpening;
 
 @end

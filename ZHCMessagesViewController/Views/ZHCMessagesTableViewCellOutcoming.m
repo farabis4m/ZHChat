@@ -29,7 +29,8 @@
     else {
         self.textViewAlignmentConstraint.constant = 0;
         self.editButton.hidden = YES;
-        self.messageBubbleLeadingConstraint.constant = 42.0;
+        
+        self.messageBubbleLeadingConstraint.constant = self.isFromAccountOpening ? 42.0 : 0;
     }
     [self layoutIfNeeded];
     [self layoutSubviews];
